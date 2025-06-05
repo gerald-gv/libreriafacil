@@ -1,11 +1,11 @@
 import React from "react";
-import NavBar from "../elementos/NavBar";
+import NavMenu from "../elementos/NavMenu";
 import '../estilos/principal.css'
 
 const Inicio = () =>{
     return(
         <header>
-            <NavBar />
+            <NavMenu />
         </header>
     )
 }

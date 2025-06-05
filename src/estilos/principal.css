@@ -1,1 +1,50 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+
 /* --------------------------------BARRA DE NAVEGACION--------------------------------*/
+
+.menu{  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+    width: 100%;
+    padding: 20px 60px;
+    background-color: #333;
+}
+
+.logo{
+    font-family: "Open Sans", sans-serif;
+    color: white;
+    font-size: 25px;
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.navBar ul{
+    list-style: none;
+    display: flex;
+    gap: 3.8rem;
+}
+
+.navBar ul li a{
+    text-decoration: none;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 600;
+    font-size: 18px;
+    color: white;
+    transition: all 0.3s ease 0s;
+}
+
+.navBar ul li a:hover{
+    color: #1e90ff;
+}
+
+
+
+
+
