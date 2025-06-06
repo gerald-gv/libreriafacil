@@ -1,50 +1,242 @@
-*{
+html,
+body {
+    overflow-x: hidden;
+}
+/* --------------------------------CONFG INICIALES--------------------------------*/
+* {
     box-sizing: border-box;
     padding: 0;
     margin: 0;
 }
 
+main {
+    max-width: 1200px;
+    margin: 50px auto;
+    overflow: hidden;
+}
 
-/* --------------------------------BARRA DE NAVEGACION--------------------------------*/
+/* --------------------------------BARRA DE MENU--------------------------------*/
 
-.menu{  
+.menu {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 3rem;
-    width: 100%;
-    padding: 20px 60px;
-    background-color: #333;
+    padding: 1.2rem 2rem;
+    background: rgba(36, 37, 42, 0.95);
+    backdrop-filter: blur(10px);
+    color: white;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: all 0.3s ease;
 }
 
-.logo{
+.menu:hover {
+    background: rgba(36, 37, 42, 0.98);
+}
+
+.logo {
     font-family: "Open Sans", sans-serif;
+    font-size: 1.5rem;
+    font-weight: bold;
     color: white;
-    font-size: 25px;
-    font-weight: 800;
     text-decoration: none;
 }
 
-.navBar ul{
+/* Barra de Navegacion */
+
+.navBar ul {
     list-style: none;
     display: flex;
     gap: 3.8rem;
+    margin: 0;
+    padding: 0;
 }
 
-.navBar ul li a{
+.navBar ul li a {
     text-decoration: none;
     font-family: "Open Sans", sans-serif;
     font-weight: 600;
     font-size: 18px;
     color: white;
-    transition: all 0.3s ease 0s;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.5rem 0;
 }
 
-.navBar ul li a:hover{
+.navBar ul li a:hover {
     color: #1e90ff;
 }
 
+/* Efecto Subrayado */
 
+.navBar ul li a::after {
+    content: " ";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #1e90ff;
+    transition: width 0.3s ease;
+}
 
+.navBar ul li a:hover::after {
+    width: 100%;
+}
 
+/* --------------------------------SLIDER DE IMAGENES--------------------------------*/
 
+.seccion-carrusel {
+    padding: 3rem 0;
+    background: #ffffff;
+}
+
+.contenedor-carrusel {
+    max-width: 80rem;
+    margin: 0 auto;
+    position: relative;
+}
+
+.carrusel {
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.pista-carrusel {
+    display: flex;
+    transform: translateX(calc(var(--slide-index, 0) * -100%));
+    transition: transform 0.5s ease;
+}
+
+.slide-carrusel {
+    min-width: 100%;
+    position: relative;
+}
+
+.slide-carrusel img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+    border-radius: 0.5rem;
+}
+/* Botones del Carrusel de imagenes */
+
+.botones-carrusel {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    z-index: 10;
+}
+
+.botones-carrusel:hover {
+    background: white;
+}
+
+.botones-carrusel.izquierda {
+    left: 1rem;
+}
+
+.botones-carrusel.derecha {
+    right: 1rem;
+}
+
+/* --------------------------------SECCION--------------------------------*/
+
+.seccion {
+    padding: 4rem 0;
+    background: #f3f4f6;
+    width: 100%;
+}
+
+/* Contenido del section */
+
+.contenedor-info {
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.info-inicio {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.contenedor-info h2 {
+    font-family: "Open Sans", sans-serif;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #1f2937;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.contenedor-info p {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.2rem;
+    color: #6b7280;
+    line-height: 1.6;
+    margin: 0 auto 2.5rem auto;
+    max-width: 600px;
+}
+
+/* Botones del Section */
+
+.botones-seccion {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    padding: 0.875rem 2rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    border: 2px solid;
+}
+
+.btn-primario {
+    background: #1e90ff;
+    color: white;
+    border-color: #1e90ff;
+}
+
+.btn-primario:hover {
+    background: #1c7ed6;
+    border-color: #1c7ed6;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(30, 144, 255, 0.3);
+}
+
+.btn-secundario {
+    background: transparent;
+    color: #1e90ff;
+    border-color: #1e90ff;
+}
+
+.btn-secundario:hover {
+    background: #1e90ff;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(30, 144, 255, 0.2);
+}
