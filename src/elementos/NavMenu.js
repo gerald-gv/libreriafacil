@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const NavMenu = () => {
     return(
-        <div className="menu">
+        <header className="menu">
             <Link to="/" className="logo">Libreria Facil</Link>
             <nav className="navBar">
                 <ul>
@@ -14,7 +14,7 @@ const NavMenu = () => {
                     <li><Link to="/">Contactos</Link></li>
                 </ul>
             </nav>
-        </div>  
+        </header>  
     );
 }
 
