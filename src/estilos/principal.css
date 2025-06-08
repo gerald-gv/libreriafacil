@@ -3,6 +3,7 @@
     box-sizing: border-box;
     padding: 0;
     margin: 0;
+    font-family: "Open Sans", sans-serif;
 }
 
 main {
@@ -33,7 +34,6 @@ main {
 }
 
 .logo {
-    font-family: "Open Sans", sans-serif;
     font-size: 1.5rem;
     font-weight: bold;
     color: white;
@@ -52,7 +52,6 @@ main {
 
 .navBar ul li a {
     text-decoration: none;
-    font-family: "Open Sans", sans-serif;
     font-weight: 600;
     font-size: 18px;
     color: white;
@@ -178,7 +177,6 @@ main {
 }
 
 .contenedor-info h2 {
-    font-family: "Open Sans", sans-serif;
     font-size: 2.5rem;
     font-weight: bold;
     color: #1f2937;
@@ -187,7 +185,6 @@ main {
 }
 
 .contenedor-info p {
-    font-family: "Open Sans", sans-serif;
     font-size: 1.2rem;
     color: #6b7280;
     line-height: 1.6;
@@ -205,7 +202,6 @@ main {
 }
 
 .btn {
-    font-family: "Open Sans", sans-serif;
     font-size: 1rem;
     font-weight: 600;
     padding: 0.875rem 2rem;
@@ -241,4 +237,141 @@ main {
     color: white;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(30, 144, 255, 0.2);
+}
+
+/* --------------------------------FOOTER--------------------------------*/
+
+.footer-pagina{
+    background: #1f2937;
+    color: white;
+    padding: 2rem 0rem;
+}
+
+.footer-contenedor{
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.contenido-footer{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+}
+
+.columna-footer{
+    margin-bottom: 1rem;
+}
+
+.logo-footer{
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-bottom: 0.75rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.descripcion-footer{
+    color: #d1d5db;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+}
+
+.redes-sociales{
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+}
+
+.icono-social{
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.icono-social:hover{
+    background: #1e90ff;
+    transform: translateY(-2px);
+}
+
+.titulo-enlaces{
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.enlaces{
+    list-style: none;
+}
+
+.enlaces li{
+    margin-bottom: 0.5rem;
+}
+
+.enlaces li a{
+    text-decoration: none;
+    color: #d1d5db;;
+    transition: color 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.enlaces li a:hover{
+    color: #1e90ff;
+}
+
+.info-contacto{
+    list-style: none;
+}
+
+.info-contacto li{
+    display: flex;
+    margin-bottom: 0.75rem;
+}
+
+.contacto-dato{
+    color: #d1d5db;
+    line-height: 1.4;
+    font-size: 0.9rem;
+}
+
+.barra-footer{
+    border-top: 1px solid #374151;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.copyright{
+    font-size: 0.8rem;
+    color: #9ca3af;
+    margin-bottom: 0.75rem;
+}
+
+.enlaces-legales{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.enlace-legal{
+    text-decoration: none;
+    font-size: 0.8rem;
+    color: #9ca3af;
+    transition: color 0.3s ease;
+}
+
+.enlace-legal:hover{
+    color: #1e90ff;
 }
