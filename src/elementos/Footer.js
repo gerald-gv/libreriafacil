@@ -60,7 +60,7 @@ const Footer = () => {
                     </ul>
                 </div>
                 <div className="columna-footer">
-                    <h3>Contacto</h3>
+                    <h3 className="titulo-contacto">Contacto</h3>
                     <ul className="info-contacto">
                         {datosContacto.map((dato, index)=>(
                             <li key={index} className="contacto-dato">

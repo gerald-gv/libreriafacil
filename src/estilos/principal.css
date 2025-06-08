@@ -252,7 +252,7 @@ main {
     margin: 0 auto;
     padding: 0 2rem;
 }
-
+/* Columna footer */
 .contenido-footer{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -263,6 +263,7 @@ main {
     margin-bottom: 1rem;
 }
 
+/* logo y contennido dentro del footer */
 .logo-footer{
     display: flex;
     align-items: center;
@@ -303,6 +304,7 @@ main {
     transform: translateY(-2px);
 }
 
+/* Enlaces Rapidos */
 .titulo-enlaces{
     font-size: 1.1rem;
     font-weight: 600;
@@ -328,6 +330,12 @@ main {
     color: #1e90ff;
 }
 
+/* Contacto*/
+.titulo-contacto{
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
 .info-contacto{
     list-style: none;
 }
@@ -342,6 +350,8 @@ main {
     line-height: 1.4;
     font-size: 0.9rem;
 }
+
+/* Barra Footer*/
 
 .barra-footer{
     border-top: 1px solid #374151;
