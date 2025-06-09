@@ -39,7 +39,6 @@ const libros = [
 const SectionLibros = () =>{    
     return(
         <section className="slider-libros">
-            <div className="contenedor-slider-libros">
                 {/*Parte de la libreria Swiper*/}
                 <Swiper
                 modules ={[Navigation]} 
@@ -62,7 +61,6 @@ const SectionLibros = () =>{
                         </SwiperSlide>
                     ))}
                 </Swiper>
-            </div>
         </section>
     )
 }
