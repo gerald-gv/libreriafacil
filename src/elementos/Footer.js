@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { BookOpen, Facebook, Twitter, Instagram,  MapPin, Phone, Mail } from "lucide-react";
+import { BookOpen, Facebook , Twitter , Instagram ,  MapPin, Phone, Mail,} from "lucide-react";
 import "../estilos/principal.css";
 
 const enlacesRapidos = [
@@ -13,11 +13,11 @@ const enlacesRapidos = [
 const datosContacto = [
   {
     icon: <MapPin size={24} />,
-    texto: "Av. Principal 123, Centro\nCiudad, CP 12345"
+    texto: "Jirón de la Unión 1081, Lima 15001"
   },
   {
     icon: <Phone size={24} />,
-    texto: "+1 (555) 123-4567"
+    texto: "+51 999 888 777"
   },
   {
     icon: <Mail size={24} />,
@@ -79,7 +79,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="barra-footer">
-                <p className="copyright">2025 Libreria Facil. Todos los Derechos Reservados</p>
+                <p className="copyright">@2025 Libreria Facil. Todos los Derechos Reservados</p>
                 <div className="enlaces-legales">
                     {enlacesLegales.map((enlace, index)=>(
                         <Link key={index} to={enlace.path} className="enlace-legal">
