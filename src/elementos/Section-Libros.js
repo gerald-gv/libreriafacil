@@ -11,8 +11,6 @@ import "../estilos/principal.css"
 import { Link } from "react-router-dom"
 
 const imglibros = [imglibro1, imglibro2, imglibro3, imglibro4];
-
-
 const libros = [
     {
         titulo: "Don Quijote de La Mancha", 

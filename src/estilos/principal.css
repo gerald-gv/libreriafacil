@@ -83,6 +83,54 @@ main {
 
 /* --------------------------------SLIDER DE IMAGENES--------------------------------*/
 
+.overlay-img {
+  position: relative;
+}
+
+.overlay-img::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+  z-index: 1;
+  border-radius: 0.5rem;
+}
+
+.overlay-img img {
+  position: relative;
+  z-index: 0;
+}
+
+/* Fecha y hora  */
+.info-datetime {
+  position: absolute;
+  top: 64px;
+  right: 15px;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background-color: rgba(0, 0, 0, 0.534);
+  color: #fdfdfd !important;
+  padding: 0.6rem 1.2rem;
+  border-radius: 12px;
+  z-index: 10;
+  font-size: 1rem;
+  font-weight: 600;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-shadow: none;
+}
+
+/* Estilo interno para cada elemento de Fecha y Hora si son spans/divs */
+.info-datetime span,
+.info-datetime div {
+  min-width: 100px;
+  text-align: center;
+}
+
 .seccion-carrusel {
     padding: 3rem 0;
     background: #ffffff;

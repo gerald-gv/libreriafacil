@@ -7,17 +7,15 @@ import img3 from "../imagenes/libreria3.png";
 import { ReactComponent as FlechaIzquierda } from "../imagenes/iconmonstr-angel-left-thin.svg";
 import { ReactComponent as FlechaDerecha } from "../imagenes/iconmonstr-angel-right-thin.svg";
 
-// Constante de Array de imagenes
+// Array de imágenes
 const imagenes = [img1, img2, img3];
 
-// Declaracion de constante del SliderImg 
+// Componente principal
 const SliderImg = () => {
-    //Estados de pausado y autplay
   const [slideActual, setSlideActual] = useState(0);
   const [pausado, setPausado] = useState(false);
   const totalSlides = imagenes.length;
 
-  // Consante de slider derecha y izquierda, uso del useCallBack(Memoriza y ahorra rendimiento)
   const siguienteSlide = useCallback(() => {
     setSlideActual((prev) => (prev + 1) % totalSlides);
   }, [totalSlides]);
@@ -26,7 +24,6 @@ const SliderImg = () => {
     setSlideActual((prev) => (prev - 1 + totalSlides) % totalSlides);
   }, [totalSlides]);
 
-  // Efectos de intervalo en imagenes
   useEffect(() => {
     if (pausado) return;
     const intervalo = setInterval(siguienteSlide, 4500);
@@ -40,23 +37,26 @@ const SliderImg = () => {
         onMouseEnter={() => setPausado(true)}
         onMouseLeave={() => setPausado(false)}
       >
-        <div className="carrusel">
-          <div className="pista-carrusel" 
-          style={{ "--slide-index": slideActual }}>
-            
-            {/* El map ayuda a ser reutilizavle y flexible para más */}
+        
 
+        <div className="carrusel">
+          <div
+            className="pista-carrusel"
+            style={{ "--slide-index": slideActual }}
+          >
             {imagenes.map((src, index) => (
               <div className="slide-carrusel" key={index}>
                 <Link to="/">
-                  <img src={src} alt={`Slide ${index + 1}`} />
+                  <div className="overlay-img">
+                    <img src={src} alt={`Slide ${index + 1}`} />
+                  </div>
                 </Link>
               </div>
             ))}
           </div>
         </div>
 
-        {/* BOTONES DE IZQUIERDA Y DERECHA */}
+        {/* Botones */}
         <button
           className="botones-carrusel izquierda"
           onClick={anteriorSlide}

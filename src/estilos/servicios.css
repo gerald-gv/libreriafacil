@@ -1,0 +1,381 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Estilos generales */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+
+/* Sección detalle-servicios */
+.detalle-servicios {
+  background: linear-gradient(to right, #f9f9f9, #eef3f9);
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.detalle-servicios h2 {
+  font-size: 2.4rem;
+  margin-bottom: 2.5rem;
+  color: #2a2a2a;
+  font-weight: 600;
+}
+
+.tarjetas-servicio {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.tarjeta {
+  background-color: #ffffff;
+  border-radius: 1.2rem;
+  padding: 2rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+  width: 300px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.1);
+}
+
+.tarjeta i {
+  font-size: 2.6rem;
+  color: #007bff;
+  margin-bottom: 1rem;
+}
+
+.tarjeta h4 {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.tarjeta p {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Sección preguntas frecuentes */
+.faq {
+  background-color: #ffffff;
+  padding: 4rem 1rem;
+  border-top: 1px solid #ddd;
+}
+
+.faq h2 {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  font-size: 2rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.faq-item {
+  margin-bottom: 2rem;
+  padding: 1.2rem;
+  border-left: 4px solid #007bff;
+  background-color: #fefefe;
+  border-radius: 0.7rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.faq-item h4 {
+  color: #222;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.faq-item p {
+  color: #555;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Sección de confianza */
+.confianza {
+  background: linear-gradient(to right, #f0f0f0, #e0f7fa);
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.confianza h2 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #222;
+  font-weight: 600;
+}
+
+.sellos {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.sello {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease;
+}
+
+.sello:hover {
+  transform: translateY(-6px);
+}
+
+.sello i {
+  font-size: 2.2rem;
+  color: #28a745;
+  margin-bottom: 0.5rem;
+}
+
+.sello p {
+  margin: 0;
+  color: #333;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/* Main services */
+.services {
+  background-color: #ffffff;
+  padding: 4rem 1rem;
+}
+
+.services-content h2 {
+  text-align: center;
+  margin-bottom: 2.5rem;
+  font-size: 2.1rem;
+  color: #333;
+  font-weight: 600;
+}
+
+.services-group {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.services-1 {
+  width: 300px;
+  text-align: center;
+  padding: 1.8rem;
+  background-color: #fafafa;
+  border-radius: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.06);
+}
+
+.services-1:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.services-1 i {
+  font-size: 2.3rem;
+  color: #ff5722;
+  margin-bottom: 1rem;
+}
+
+.services-1 h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #222;
+}
+
+.services-1 p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Texto informativo */
+.info-text {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #444;
+  margin-top: 1rem;
+}
+
+/* Botón principal */
+.btn-1 {
+  display: inline-block;
+  background-color: #007bff;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+  margin-top: 1rem;
+  font-weight: 500;
+}
+
+.btn-1:hover {
+  background-color: #0056b3;
+}
+
+/* Fecha y Hora en Slider */
+.info-datetime {
+  margin-top: 1rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+}
+
+/* Sección proceso de compra */
+.proceso-compra {
+  background-color: #f8f9fa;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.pasos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.paso {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 260px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+  transition: transform 0.3s ease;
+}
+
+.paso:hover {
+  transform: translateY(-8px);
+}
+
+.paso i {
+  font-size: 2.2rem;
+  color: #007bff;
+  margin-bottom: 1rem;
+}
+
+.paso h4 {
+  font-size: 1.2rem;
+  color: #222;
+  margin-bottom: 0.5rem;
+}
+
+.paso p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Sección promociones */
+.promociones {
+  background-color: #ffffff;
+  padding: 4rem 1rem;
+  text-align: center;
+}
+
+.beneficios {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.beneficio {
+  background-color: #fafafa;
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 260px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease;
+}
+
+.beneficio:hover {
+  transform: translateY(-8px);
+}
+
+.beneficio i {
+  font-size: 2.2rem;
+  color: #ff9800;
+  margin-bottom: 1rem;
+}
+
+.beneficio h4 {
+  font-size: 1.2rem;
+  color: #222;
+  margin-bottom: 0.5rem;
+}
+
+.beneficio p {
+  font-size: 1rem;
+  color: #555;
+}
+
+/* Sección políticas */
+.politicas {
+  background-color: #f1f1f1;
+  padding: 4rem 1rem;
+}
+
+.politicas h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
+.lista-politicas {
+  max-width: 800px;
+  margin: 0 auto;
+  list-style: none;
+  padding: 0;
+}
+
+.lista-politicas li {
+  font-size: 1rem;
+  color: #444;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .tarjetas-servicio,
+  .sellos,
+  .services-group,
+  .pasos,
+  .beneficios {
+    flex-direction: column;
+    align-items: center;
+  }
+  .tarjeta,
+  .sello,
+  .services-1,
+  .paso,
+  .beneficio {
+    width: 90%;
+  }
+  .info-datetime {
+    flex-direction: column;
+  }
+}

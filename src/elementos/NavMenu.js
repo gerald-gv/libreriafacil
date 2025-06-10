@@ -9,9 +9,9 @@ const NavMenu = () => {
             <nav className="navBar">
                 <ul>
                     <li><Link to="/">Inicio</Link></li>
-                    <li><Link to="/">Servicios</Link></li>
+                    <li><Link to="/Servicios">Servicios</Link></li>
                     <li><Link to="/">Libros</Link></li>
-                    <li><Link to="/">Contactos</Link></li>
+                    <li><Link to="/IniciarSesion">Iniciar Sesion</Link></li>
                 </ul>
             </nav>
         </header>  
