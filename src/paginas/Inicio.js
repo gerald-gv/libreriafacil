@@ -3,7 +3,7 @@ import NavMenu from "../elementos/NavMenu"
 import SliderImg from "../elementos/Slider"
 import Fecha from '../elementos/Fecha';
 import Hora from '../elementos/Hora';
-import SectionLibros from "../elementos/Section-Libros"
+import ProductoLibros from "../elementos/Section-Libros"
 import SectionInicio from "../elementos/Section-Inicio"
 import Footer from "../elementos/Footer"
 import "../estilos/principal.css"
@@ -19,7 +19,7 @@ const Inicio = () => {
         <main>
             <SliderImg />
             <h2 className="titulo-slider">Libros Destacados</h2>
-            <SectionLibros />
+            <ProductoLibros />
         </main>
         <SectionInicio />
         <Footer />
