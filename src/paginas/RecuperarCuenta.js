@@ -13,7 +13,7 @@ const RecuperarCuenta = () => {
               <p>Por favor introduzca su dirección de correo electrónico para recibir un enlace de restablecimiento de contraseña.</p>
               <div className="content-form">
                 <form className="register">
-                  <label for="Email" className="title-input-name">Correo electrónico <span>*</span></label>
+                  <label htmlFor="Email" className="title-input-name">Correo electrónico <span>*</span></label>
                   <input type="email" name="name" id="Email" class="input-container" required/>
                   <div className="submit">
                     <input type="submit" value="Enviar solicitud"/>

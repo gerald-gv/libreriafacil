@@ -10,11 +10,11 @@ function App() {
   return (
     <Routes> 
       <Route path = "/" element ={<Inicio/>} />
-      <Route path = "/Productos" element ={<Productos/>} />
-      <Route path = "/Servicios" element ={<Servicios />} />
-      <Route path = "/Registrate" element ={<Registrate/>} />
-      <Route path = "/IniciarSesion" element ={<IniciarSesion/>} />
-      <Route path = "/RecuperarCuenta" element ={<RecuperarCuenta/>} />
+      <Route path = "/productos" element ={<Productos/>} />
+      <Route path = "/servicios" element ={<Servicios />} />
+      <Route path = "/registrate" element ={<Registrate/>} />
+      <Route path = "/iniciar-sesion" element ={<IniciarSesion/>} />
+      <Route path = "/recuperar-cuenta" element ={<RecuperarCuenta/>} />
     </Routes>
   );
 }

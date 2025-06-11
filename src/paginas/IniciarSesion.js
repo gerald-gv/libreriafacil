@@ -17,11 +17,11 @@ const IniciarSesion = () => {
                   <input type="email" name="name" id="Email" class="input-container" required/>
                   <label for="password" className="title-input-name">Contraseña <span>*</span></label>
                   <input type="password"id="password" class="input-container" required/>
-                  <Link to="/RecuperarCuenta" className="forgot-password">¿Olvidaste tu contraseña?</Link>
+                  <Link to="/recuperar-cuenta" className="forgot-password">¿Olvidaste tu contraseña?</Link>
                   <div className="submit">
                     <input type="submit" value="Iniciar sesion"/>
                     <p>¿Aun no estas registrado?</p>
-                    <Link to="/Registrate" className="second-button">Crear cuenta</Link>
+                    <Link to="/registrate" className="second-button">Crear cuenta</Link>
                   </div>
                 </form>
               </div>
