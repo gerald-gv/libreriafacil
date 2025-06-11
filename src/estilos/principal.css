@@ -521,7 +521,7 @@ main {
 
 /* --------------------------------RESPONSIVE--------------------------------*/
 
-@media (max-width: 380px){
+@media (max-width: 400px){
     /* -----------BARRA DE MENU-----------*/
     .menu{
         flex-direction: column;
@@ -613,7 +613,7 @@ main {
     }
 
     .barra-footer{
-        gap: 0.5;
+        gap: 0.5rem;
     }
     
     .descripcion-footer,
