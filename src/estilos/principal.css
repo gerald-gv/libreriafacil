@@ -521,10 +521,10 @@ main {
 
 /* --------------------------------RESPONSIVE--------------------------------*/
 
-@media (max-width: 400px){
+@media (width >= 768px){
     /* -----------BARRA DE MENU-----------*/
     .menu{
-        flex-direction: column;
+        flex-direction: column; 
         align-items: flex-start;
         padding: 1rem;
     }
