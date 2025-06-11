@@ -521,7 +521,7 @@ main {
 
 /* --------------------------------RESPONSIVE--------------------------------*/
 
-@media (width >= 768px){
+@media (width <= 768px){
     /* -----------BARRA DE MENU-----------*/
     .menu{
         flex-direction: column; 
