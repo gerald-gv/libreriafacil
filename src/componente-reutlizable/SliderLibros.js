@@ -11,10 +11,18 @@ const SliderLibros = ({ libros = []}) =>{
         <section className="slider-libros">
             <Swiper
                 modules={[Navigation]} 
-                spaceBetween={20}
-                slidesPerView={3}
                 loop={true}
                 navigation={true}
+                breakpoints={{
+                    320:{
+                        slidesPerView: 2,
+                        spaceBetween: 15
+                    },
+                    768:{
+                        slidesPerView: 3,
+                        spaceBetween: 20
+                    }
+                }}
             >
                 {libros.map((libro, index) => (
                     <SwiperSlide key={index}>
