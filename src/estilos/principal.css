@@ -19,7 +19,7 @@ main {
     justify-content: space-between;
     align-items: center;
     padding: 1.2rem 2rem;
-    background: rgba(36, 37, 42, 0.95);
+    background: rgba(26, 32, 48, 0.93);
     backdrop-filter: blur(10px);
     color: white;
     position: sticky;
@@ -30,7 +30,7 @@ main {
 }
 
 .menu:hover {
-    background: rgba(36, 37, 42, 0.98);
+    background: rgba(22, 28, 44, 0.96);
 }
 
 .logo {
@@ -376,7 +376,7 @@ main {
 /* --------------------------------FOOTER--------------------------------*/
 
 .footer-pagina{
-    background: #1f2937;
+    background: #111827;
     color: white;
     padding: 2rem 0rem;
 }
@@ -405,7 +405,7 @@ main {
     margin-bottom: 0.75rem;
     font-size: 1.3rem;
     font-weight: bold;
-    color: white;
+    color: #599EFF; 
     text-decoration: none;
 }
 
@@ -442,6 +442,7 @@ main {
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 1rem;
+    color: #599EFF;
 }
 
 .enlaces{
@@ -468,6 +469,7 @@ main {
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 1rem;
+    color: #599EFF;
 }
 .info-contacto{
     list-style: none;
@@ -482,6 +484,11 @@ main {
     color: #d1d5db;
     line-height: 1.4;
     font-size: 0.9rem;
+}
+
+.icono-contacto{
+    color: #599EFF;
+    margin-right: 0.45rem;
 }
 
 /* Barra Footer*/
