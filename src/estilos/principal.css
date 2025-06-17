@@ -41,7 +41,6 @@ main {
 }
 
 /* Barra de Navegacion */
-
 .navBar ul {
     list-style: none;
     display: flex;
@@ -63,7 +62,19 @@ main {
 .navBar ul li a:hover {
     color: #1e90ff;
 }
-
+/*       Menu       */
+#menu{
+    display: none;
+}
+.menu > label {
+    cursor: pointer;
+    display: none;
+    position: relative;
+    top: -4px;
+}
+.menu-icon{
+    width: 25px;
+}
 /* Efecto Subrayado */
 
 .navBar ul li a::after {
@@ -532,11 +543,24 @@ main {
 @media (width <= 768px){
     /* -----------BARRA DE MENU-----------*/
     .menu{
-        flex-direction: column; 
         align-items: flex-start;
         padding: 1rem;
     }
-
+    .menu > label {
+        display: initial;
+    }
+    .menu > .navBar{
+        background: inherit;
+        width: 100%;
+        padding: 10px;
+        position: absolute;
+        left: 0;
+        top: 100%;
+        display: none;
+    }
+    #menu:checked ~ .navBar{
+        display: initial;
+    }
     .logo{
         font-size: 1.2rem;
         margin-bottom: 0.5rem;
