@@ -20,6 +20,7 @@ const NavMenu = () => {
             <Link to="/" className="logo">
                 {usuario ? `Bienvenido, ${usuario.nombre}` : "Librería Fácil"}
             </Link>
+            <input type="checkbox" id="menu"/>
             <label htmlFor="menu">
                 <img src={Menu} className="menu-icon" alt="Menu"/>
             </label>
