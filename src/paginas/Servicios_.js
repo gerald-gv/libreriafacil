@@ -1,7 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import NavMenu from '../elementos/NavMenu';
-import Footer from '../elementos/Footer';
 import Fecha from '../elementos/Fecha';
 import Hora from '../elementos/Hora';
 import '../estilos/servicios.css';
@@ -10,7 +8,6 @@ const Servicios = () => {
   return (
     <>
       <header className="header">
-        <NavMenu />
           <div className="info-datetime">
             <Fecha />
             <Hora />
@@ -163,8 +160,6 @@ const Servicios = () => {
           </ul>
         </section>
       </main>
-
-      <Footer />
     </>
   );
 };

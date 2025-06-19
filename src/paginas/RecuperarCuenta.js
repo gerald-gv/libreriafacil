@@ -1,11 +1,8 @@
 import React from "react";
-import NavMenu from "../elementos/NavMenu"
-import Footer from "../elementos/Footer"
 import "../estilos/formularios.css"
 const RecuperarCuenta = () => {
   return (
     <div>
-        <NavMenu />
         <main>
           <section>
             <div className="font-content-form">
@@ -23,7 +20,6 @@ const RecuperarCuenta = () => {
             </div>
           </section>
         </main>
-        <Footer />
     </div>
   )
 }
