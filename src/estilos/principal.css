@@ -261,6 +261,8 @@ main {
     color: #1f2937; 
     margin: 0.3rem;
     font-weight: bold;
+    min-height: 2.4em; 
+    line-height: 1.2;
 }
 
 .texto-contenido {
