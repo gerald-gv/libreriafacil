@@ -6,7 +6,7 @@ import "../estilos/principal.css";
 const enlacesRapidos = [
     {label: "Inicio",    path: "/"},
     {label: "Servicios", path: "/servicios"},
-    {label: "Libros",    path: "/"},
+    {label: "Libros",    path: "/productos"},
 ]
 
 const datosContacto = [

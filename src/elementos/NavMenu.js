@@ -16,6 +16,12 @@ const NavMenu = () => {
         Navegar("/")
     }
 
+    const scrollTop = () =>{
+    window.scrollTo({
+        top: 0,
+    })
+}
+
     return(
         <header className="menu">
             <Link to="/" className="logo">
@@ -28,9 +34,9 @@ const NavMenu = () => {
             </label>
             <nav className="navBar">
                 <ul>
-                    <li><Link to="/">Inicio</Link></li>
-                    <li><Link to="/servicios">Servicios</Link></li>
-                    <li><Link to="/productos">Libros</Link></li>
+                    <li><Link to="/" onClick={scrollTop}>Inicio</Link></li>
+                    <li><Link to="/servicios" onClick={scrollTop}>Servicios</Link></li>
+                    <li><Link to="/productos" onClick={scrollTop}>Libros</Link></li>
                     <li>
                         {/*Verifica si hay usuario, si hay usuario logueado, aparece boton de cerrar sesion*/}
                         {usuario ? (
