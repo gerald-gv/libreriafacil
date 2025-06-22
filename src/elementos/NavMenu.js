@@ -6,7 +6,7 @@ import Menu from "../imagenes/menu.png";
 
 const NavMenu = () => {
     //Utiliza lo puesto en el UsuarioContext.js
-    const {usuario, setUsuario} =useContext(UsuarioContext)
+    const {usuario, setUsuario} = useContext(UsuarioContext)
     const Navegar = useNavigate();
     
     const handleLogout = () =>{

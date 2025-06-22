@@ -1,6 +1,6 @@
 import React from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from "swiper/modules";
+import { Navigation, Autoplay } from "swiper/modules";
 import "swiper/css"; 
 import "swiper/css/navigation";
 import "../estilos/principal.css";
@@ -10,9 +10,13 @@ const SliderLibros = ({ libros = []}) =>{
     return (
         <section className="slider-libros">
             <Swiper
-                modules={[Navigation]} 
+                modules={[Navigation, Autoplay]} 
                 loop={true}
                 navigation={true}
+                autoplay={{
+                    delay: 3000,
+                    disableOnInteraction: false,
+                }}
                 breakpoints={{
                     320:{
                         slidesPerView: 2,
@@ -43,3 +47,4 @@ const SliderLibros = ({ libros = []}) =>{
 };
 
 export default SliderLibros;
+

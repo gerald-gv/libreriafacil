@@ -5,9 +5,8 @@ import "../estilos/principal.css";
 
 const enlacesRapidos = [
     {label: "Inicio",    path: "/"},
-    {label: "Servicios", path: "/"},
+    {label: "Servicios", path: "/servicios"},
     {label: "Libros",    path: "/"},
-    {label: "Contactos", path: "/"},
 ]
 
 const datosContacto = [
@@ -30,6 +29,12 @@ const enlacesLegales = [
     {path: "/", texto: "Terminos de Uso"},
     {path: "/", texto: "Politica de Cookies"}
 ]
+
+const scrollTop = () =>{
+    window.scrollTo({
+        top: 0,
+    })
+}
 
 const Footer = () => {
   return (
@@ -54,7 +59,7 @@ const Footer = () => {
                     <ul className="enlaces">
                         {enlacesRapidos.map((enlace, index)=>(
                             <li key={index}>
-                                <Link to ={enlace.path}>{enlace.label}</Link>
+                                <Link to ={enlace.path} onClick={scrollTop}>{enlace.label} </Link>
                             </li>
                         ))}
                     </ul>
