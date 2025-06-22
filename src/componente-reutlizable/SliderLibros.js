@@ -7,11 +7,12 @@ import "../estilos/principal.css";
 import { Link } from "react-router-dom";
 
 const SliderLibros = ({ libros = []}) =>{
+    const loopActivo = libros.length > 3; // Solo se activa si hay más de 3
     return (
         <section className="slider-libros">
             <Swiper
                 modules={[Navigation, Autoplay]} 
-                loop={true}
+                loop={loopActivo}
                 navigation={true}
                 autoplay={{
                     delay: 3000,
