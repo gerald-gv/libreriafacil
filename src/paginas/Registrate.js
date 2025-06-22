@@ -6,7 +6,7 @@ const Registrate = () => {
 
   // Establecer el estado
   const [formData, setFormData] = useState({
-    nombre : "",
+    nombre : "",  
     email : "",
     contraseña : "",
     confirmarContraseña : ""

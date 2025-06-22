@@ -38,6 +38,13 @@ main {
     font-weight: bold;
     color: white;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.sublogo {
+    flex-shrink: 0;
 }
 
 /* Barra de Navegacion */

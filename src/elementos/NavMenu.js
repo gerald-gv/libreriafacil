@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { UsuarioContext } from "../usuario/UsuarioContext";
 import { Link, useNavigate } from "react-router-dom";
+import { BookOpen } from "lucide-react";
 import '../estilos/principal.css'
 import Menu from "../imagenes/menu.png";
 
@@ -18,6 +19,7 @@ const NavMenu = () => {
     return(
         <header className="menu">
             <Link to="/" className="logo">
+                <BookOpen size={24} className="sublogo"/>
                 {usuario ? `Bienvenido, ${usuario.nombre}` : "Librería Fácil"}
             </Link>
             <input type="checkbox" id="menu"/>
