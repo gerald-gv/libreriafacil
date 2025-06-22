@@ -30,7 +30,7 @@ const NavMenu = () => {
                 <ul>
                     <li><Link to="/">Inicio</Link></li>
                     <li><Link to="/servicios">Servicios</Link></li>
-                    <li><Link to="/">Libros</Link></li>
+                    <li><Link to="/productos">Libros</Link></li>
                     <li>
                         {/*Verifica si hay usuario, si hay usuario logueado, aparece boton de cerrar sesion*/}
                         {usuario ? (

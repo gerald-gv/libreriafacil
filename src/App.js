@@ -1,7 +1,7 @@
 import React from 'react';
 import { Routes, Route} from 'react-router-dom'
 import Inicio from './paginas/Inicio';
-import Productos from './paginas/Productos'
+import Libros from './paginas/Libros';
 import Servicios from './paginas/Servicios_'
 import Registrate from './paginas/Registrate'
 import IniciarSesion from './paginas/IniciarSesion'
@@ -12,7 +12,7 @@ function App() {
     <Routes>
       <Route path='/' element={<Layout/>}>
         <Route index element ={<Inicio/>} />
-        <Route path = "/productos" element ={<Productos/>} />
+        <Route path = "/productos" element ={<Libros/>} />
         <Route path = "/servicios" element ={<Servicios />} />
         <Route path = "/registrate" element ={<Registrate/>} />
         <Route path = "/iniciar-sesion" element ={<IniciarSesion/>} />
