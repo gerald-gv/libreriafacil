@@ -11,7 +11,8 @@ const Registrate = () => {
     contraseña : "",
     confirmarContraseña : ""
   })
-
+  
+  //Accediendo al setUsuario
   const { setUsuario } = useContext(UsuarioContext);
 
   const Navegar = useNavigate();
@@ -48,7 +49,7 @@ const Registrate = () => {
     // Registro confirmado y trasladado a iniciar sesion
     alert("Te has registrado correctamente")
     setUsuario(nuevoUsuario);
-    Navegar("/iniciar-sesion")
+    Navegar("/")
     console.log("oye, si funcionas")
   }
 
