@@ -38,7 +38,7 @@ const SliderLibros = ({ libros = []}) =>{
                                 <p className="descripcion-libro">{libro.descripcion}</p>
                                 <p className="precio-libro">{libro.precio}</p>
                             </div>
-                            <Link to="/">{libro.boton}</Link>
+                            <Link to="/">Comprar</Link>
                         </div>
                     </SwiperSlide>
                 ))}

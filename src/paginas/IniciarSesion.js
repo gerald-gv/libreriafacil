@@ -37,8 +37,15 @@ const IniciarSesion = () => {
     setError("");
     setUsuario(usuarioEncontrado);
     localStorage.setItem("usuario", JSON.stringify(usuarioEncontrado));
-    alert("Inicio de sesión confirmada");
-    Navegar("/");
+
+    if(usuarioEncontrado.email === "admin@correo.com" && usuarioEncontrado.contraseña === "admin"){
+      alert("Inicio de sesion como Administrador, Bienvenido admin")
+      Navegar("/reporte-ventas");
+    }
+    else{
+      alert("Inicio de sesion confirmada")
+      Navegar("/");
+    }
   };
 
   return (

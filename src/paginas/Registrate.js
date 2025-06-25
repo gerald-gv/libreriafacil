@@ -15,7 +15,7 @@ const Registrate = () => {
   const [error, setError] = useState("");
 
 
-    // Acceso al contexto
+  // Acceso al contexto
   const { setUsuario, usuariosBD, setUsuariosBD } = useContext(UsuarioContext);
 
   const Navegar = useNavigate();

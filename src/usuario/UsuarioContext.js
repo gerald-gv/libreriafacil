@@ -23,10 +23,10 @@ export const UsuarioGlobal = ({ children }) => {
         setUsuariosBD(usuariosGlobales);
 
         //Verificar si hay un usuario logueado guardado
-        const usuarioGuardado = JSON.parse(localStorage.getItem("usuario"));
-        if (usuarioGuardado) {
+        const usuarioActual = JSON.parse(localStorage.getItem("usuario"));
+        if (usuarioActual) {
           const usuarioValido = usuariosGlobales.find(
-            u => u.email === usuarioGuardado.email && u.contraseña === usuarioGuardado.contraseña
+            u => u.email === usuarioActual.email && u.contraseña === usuarioActual.contraseña
           );
 
           if (usuarioValido)
@@ -41,6 +41,10 @@ export const UsuarioGlobal = ({ children }) => {
     cargarUsuarios();
   }, []);
 
+  useEffect(() => {
+    console.log('usuarios', usuariosBD)
+  },[usuariosBD])
+  
   return (
     <UsuarioContext.Provider value={{ usuario, setUsuario, usuariosBD, setUsuariosBD }}>
       {children}

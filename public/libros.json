@@ -4,29 +4,25 @@
       "img": "img1",
       "titulo": "Don Quijote de La Mancha",
       "descripcion": "La aventura de un hidalgo que enloquece por los libros de caballería y sale a buscar justicia por el mundo.",
-      "precio": "S/.50.00",
-      "boton": "Comprar"
+      "precio": "S/.50.00"
     },
      {
       "img": "img2",
       "titulo": "Orgullo y Prejuicio",
       "descripcion": "Una historia de amor y malentendidos en la Inglaterra del siglo XIX.",
-      "precio": "S/.65.00",
-      "boton": "Comprar"
+      "precio": "S/.65.00"
     },
      {
       "img": "img3",
       "titulo": "Crimen y Castigo",
       "descripcion": "Un joven comete un asesinato y enfrenta las consecuencias psicológicas y morales.",
-      "precio": "S/.65.00",
-      "boton": "Comprar"
+      "precio": "S/.65.00"
     },
     {
       "img": "img4",
       "titulo": "Cien años de Soledad",
       "descripcion": "La saga mágica de la familia Buendía en el mítico pueblo de Macondo.",
-      "precio": "S/.89.00",
-      "boton": "Comprar"
+      "precio": "S/.89.00"
     }
   ],
   "ficcion": [
@@ -34,29 +30,25 @@
       "img" : "imgf1",
       "titulo": "La sombra del Viento",
       "descripcion": "Un joven descubre un libro maldito y se ve envuelto en una historia de secretos, amor y tragedia en la Barcelona de posguerra",
-      "precio": "S/.59.90",
-      "boton": "Comprar"
+      "precio": "S/.59.90"
     },
     {
       "img" : "imgf2",
       "titulo": "El curioso incidente del perro a medianoche",
       "descripcion": "Un joven con autismo investiga la muerte de un perro y descubre secretos familiares.",
-      "precio": "S/.39.00",
-      "boton": "Comprar"
+      "precio": "S/.39.00"
     },
     {
       "img" : "imgf3",
       "titulo": "Tokio Blues",
       "descripcion": "Un joven japonés revive su juventud marcada por el amor, la pérdida y el paso melancólico del tiempo",
-      "precio": "S/.56.00",
-      "boton": "Comprar"
+      "precio": "S/.56.00"
     },
     {
       "img" : "imgf4",
       "titulo": "Los hombres me explican cosas",
       "descripcion": "Una colección de ensayos agudos que exploran el feminismo moderno con ironía, claridad y fuerza argumentativa",
-      "precio": "S/.45.00",
-      "boton": "Comprar"
+      "precio": "S/.45.00"
     }
   ],
   "desarrollo": [
@@ -64,29 +56,25 @@
       "img" : "imgd1",
       "titulo": "Hábitos atómicos",
       "descripcion": "Pequeños cambios que generan grandes resultados. Un método práctico para construir buenos hábitos y eliminar los malos",
-      "precio": "S/.48.00",
-      "boton": "Comprar"
+      "precio": "S/.48.00"
     },
     {
       "img" : "imgd2",
       "titulo": "Los 7 hábitos de la gente altamente efectiva",
       "descripcion": "Una guía para liderar tu vida con responsabilidad, integridad y enfoque en lo importante",
-      "precio": "S/.55.00",
-      "boton": "Comprar"
+      "precio": "S/.55.00"
     },
     {
       "img" : "imgd3",
       "titulo": "El poder del ahora",
       "descripcion": "Una invitación a vivir en el presente y liberarse de la ansiedad del tiempo y la mente",
-      "precio": "S/.46.90",
-      "boton": "Comprar"
+      "precio": "S/.46.90"
     },
     {
       "img" : "imgd4",
       "titulo": "Quién se ha llevado mi queso",
       "descripcion": "Una fábula sobre el cambio y cómo adaptarse rápidamente al mundo en constante transformación",
-      "precio": "S/.39.90",
-      "boton": "Comprar"
+      "precio": "S/.39.90"
     }
   ],
   "terror": [
@@ -94,29 +82,25 @@
       "img" : "imgt1",
       "titulo": "It (Eso)",
       "descripcion": "Un grupo de amigos enfrenta una entidad maligna que se alimenta del miedo y reaparece cada 27 años en su ciudad.",
-      "precio": "S/.72.90",
-      "boton": "Comprar"
+      "precio": "S/.72.90"
     },
     {
       "img" : "imgt2",
       "titulo": "La Casa Infernal",
       "descripcion": "Cuatro investigadores se enfrentan a fuerzas sobrenaturales en una mansión considerada la más embrujada del mundo.",
-      "precio": "S/.60.00",
-      "boton": "Comprar"
+      "precio": "S/.60.00"
     },
     {
       "img" : "imgt3",
       "titulo": "Drácula",
       "descripcion": "El clásico enfrentamiento entre el temible conde vampiro y los humanos que intentan detener su sed de sangre",
-      "precio": "S/.48.00",
-      "boton": "Comprar"
+      "precio": "S/.48.00"
     },
     {
       "img" : "imgt4",
       "titulo": "El silencio de los inocentes",
       "descripcion": "Una joven agente del FBI se enfrenta a un asesino serial con la ayuda de un brillante pero peligroso psiquiatra",
-      "precio": "S/.58.00",
-      "boton": "Comprar"
+      "precio": "S/.58.00"
     }
   ]
 }
