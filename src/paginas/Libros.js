@@ -1,55 +1,43 @@
 import { useEffect, useState } from "react";
 import Fecha from '../elementos/Fecha';
 import Hora from '../elementos/Hora';
-import ProductoLibros from "../elementos/Section-Libros"
-import img1 from "../imagenes/libro1.jpg"
-import img2 from "../imagenes/libro2.jpg"
-import img3 from "../imagenes/libro3.jpg"
-import img4 from "../imagenes/libro4.jpg"
-import imgf1 from "../imagenes/libro5.jpg"
-import imgf2 from "../imagenes/libro6.jpg"
-import imgf3 from "../imagenes/libro7.jpg"
-import imgf4 from "../imagenes/libro8.jpg"
-import imgd1 from "../imagenes/libro9.jpg"
-import imgd2 from "../imagenes/libro10.jpg"
-import imgd3 from "../imagenes/libro11.jpg"
-import imgd4 from "../imagenes/libro12.jpg"
-import imgt1 from "../imagenes/libro13.jpg"
-import imgt2 from "../imagenes/libro14.jpg"
-import imgt3 from "../imagenes/libro15.jpg"
-import imgt4 from "../imagenes/libro16.jpg"
-
-const imagenes = { 
-    img1, img2, img3, img4,
-    imgf1, imgf2, imgf3, imgf4,
-    imgd1, imgd2, imgd3, imgd4,
-    imgt1, imgt2, imgt3, imgt4
-};
+import ProductoLibros from "../elementos/Section-Libros";
 
 const Productos = () => {
 
-    const [datosLibros, setDatosLibros] = useState({});
+  const [datosLibros, setDatosLibros] = useState({});
 
-    useEffect(() => {
-        fetch("/libros.json")
-            .then(res => res.json())
-            .then(data => {
-                const reempImagenes = (libros) =>
-                    libros.map((libro) => ({
-                        ...libro,
-                        img: imagenes[libro.img] || ""
-                    }));
-                setDatosLibros({
-                    destacados:reempImagenes(data.destacados),
-                    ficcion:reempImagenes(data.ficcion),
-                    desarrollo:reempImagenes(data.desarrollo),
-                    terror:reempImagenes(data.terror),
-                     
-                })
-            })
-            .catch((err) => console.error("Error cargando libros:", err));
-    }, []);
+  useEffect(() => {
+    fetch("http://localhost:1337/api/categorias?populate[productos][populate]=imagen")
+      .then(res => res.json())
+      .then(data => {
+        console.log("Respuesta completa de Strapi:", data);
 
+        const categorias = {};
+
+        data.data.forEach(categoria => {
+          const nombreCategoria = categoria.titulo;
+          const productos = categoria.productos?.map(producto => {
+            const imagen = producto.imagen?.url;
+
+            return {
+              titulo: producto.titulo,
+              descripcion: producto.descripcion,
+              precio: producto.precio,
+              stock: producto.stock,
+              img: imagen ? `http://localhost:1337${imagen}` : ""
+            };
+          });
+
+          if (nombreCategoria && productos) {
+            categorias[nombreCategoria] = productos;
+          }
+        });
+
+        setDatosLibros(categorias);
+      })
+      .catch(err => console.error("Error a la carga de libros", err));
+  }, []);
 
 
     return (

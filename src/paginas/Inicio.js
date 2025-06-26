@@ -1,49 +1,57 @@
 import React, { useEffect, useState } from "react";
-import SliderImg from "../elementos/Slider"
+import SliderImg from "../elementos/Slider";
 import Fecha from '../elementos/Fecha';
 import Hora from '../elementos/Hora';
-import ProductoLibros from "../elementos/Section-Libros"
-import SectionInicio from "../elementos/Section-Inicio"
-import "../estilos/principal.css"
-import img1 from "../imagenes/libro1.jpg"
-import img2 from "../imagenes/libro2.jpg"
-import img3 from "../imagenes/libro3.jpg"
-import img4 from "../imagenes/libro4.jpg"
-
-const imagenes = { img1, img2, img3, img4 };
+import ProductoLibros from "../elementos/Section-Libros";
+import SectionInicio from "../elementos/Section-Inicio";
+import "../estilos/principal.css";
 
 const Inicio = () => {
-
-    const [librosDestacados, setLibrosDestacados] = useState([]);
+  const [librosDestacados, setLibrosDestacados] = useState([]);
 
   useEffect(() => {
-    fetch("/libros.json")
-      .then((res) => res.json())
-      .then((data) => {
-        const libros_Destacados = data.destacados.map((libro) => ({
-          ...libro,
-          img: imagenes[libro.img] || ""
-        }));
-        setLibrosDestacados(libros_Destacados);
-      });
+    fetch("http://localhost:1337/api/categorias?populate[productos][populate]=imagen")
+      .then(res => res.json())
+      .then(data => {
+        // Encontrar el titulo de categoria destacados
+        const categoriaDestacados = data.data.find(cat => cat.titulo === "destacados");
+        if (!categoriaDestacados || !categoriaDestacados.productos) return;
+
+        //Recorrer los productos con map para retornar el contenido
+        const productos = categoriaDestacados.productos.map(producto => {
+          const imagen = producto.imagen?.url;
+
+          return {
+            titulo: producto.titulo,
+            descripcion: producto.descripcion,
+            precio: producto.precio.toFixed(2),
+            stock: producto.stock,
+            img: imagen ? `http://localhost:1337${imagen}` : ""
+          };
+        });
+
+        setLibrosDestacados(productos);
+      })
+      .catch(err => console.error("Error al cargar libros destacados:", err));
   }, []);
 
 
   return (
     <div>
-        <div className="info-datetime">
-            <Fecha />
-            <Hora />
-          </div>
-        <main>
-            <SliderImg />
-            <h2 className="titulo-slider">Libros Destacados</h2>
-            <ProductoLibros libros={librosDestacados} />
-        </main>
-        <SectionInicio />
+      <div className="info-datetime">
+        <Fecha />
+        <Hora />
+      </div>
+      <main>
+        <SliderImg />
+        <h2 className="titulo-slider">Libros Destacados</h2>
+        <ProductoLibros libros={librosDestacados} />
+      </main>
+      <SectionInicio />
     </div>
-  )
-}
+  );
+};
 
-export default Inicio
+export default Inicio;
+
 

@@ -36,7 +36,7 @@ const SliderLibros = ({ libros = []}) =>{
                             <h3>{libro.titulo}</h3>
                             <div className="texto-contenido">
                                 <p className="descripcion-libro">{libro.descripcion}</p>
-                                <p className="precio-libro">{libro.precio}</p>
+                                <p className="precio-libro">S/.{Number(libro.precio).toFixed(2)}</p>
                             </div>
                             <Link to="/">Comprar</Link>
                         </div>
