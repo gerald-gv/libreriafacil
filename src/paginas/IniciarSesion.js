@@ -9,7 +9,7 @@ const IniciarSesion = () => {
     contraseña: "",
   });
 
-  const { setUsuario, usuariosBD } = useContext(UsuarioContext);
+  const { setUsuario } = useContext(UsuarioContext);
   const Navegar = useNavigate();
   const [error, setError] = useState("");
 
@@ -21,30 +21,39 @@ const IniciarSesion = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Verifica si existe el usuario en usuariosBD
-    const usuarioEncontrado = usuariosBD.find(
-      u => u.email === formData.email && u.contraseña === formData.contraseña
-    );
+    try {
+      const respuesta = await fetch("http://localhost:1337/api/auth/local", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          identifier: formData.email,
+          password: formData.contraseña,
+        }),
+      });
 
-    if (!usuarioEncontrado) {
-      setError("Correo y/o contraseña incorrectos");
-      return;
-    }
+      const data = await respuesta.json();
 
-    setError("");
-    setUsuario(usuarioEncontrado);
-    localStorage.setItem("usuario", JSON.stringify(usuarioEncontrado));
+      if (data.error) {
+        setError("Correo y/o contraseña incorrectos");
+        return;
+      }
+      // Establecer usuario para localStorage, persistencia completada
+      localStorage.setItem("usuario", JSON.stringify(data.user));
+      setUsuario(data.user);
 
-    if(usuarioEncontrado.email === "admin@correo.com" && usuarioEncontrado.contraseña === "admin"){
-      alert("Inicio de sesion como Administrador, Bienvenido admin")
-      Navegar("/reporte-ventas");
-    }
-    else{
-      alert("Inicio de sesion confirmada")
-      Navegar("/");
+      if (data.user.email === "admin@correo.com") {
+        alert("Bienvenido, administrador");
+        Navegar("/reporte-ventas");
+      } else {
+        alert("Inicio de sesión exitoso");
+        Navegar("/");
+      }
+    } catch (error) {
+      console.error("Error al iniciar sesión:", error);
+      setError("Error de conexión");
     }
   };
 

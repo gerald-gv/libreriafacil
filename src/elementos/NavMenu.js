@@ -26,7 +26,7 @@ const NavMenu = () => {
         <header className="menu">
             <Link to="/" className="logo">
                 <BookOpen size={24} className="sublogo"/>
-                {usuario ? `Bienvenido, ${usuario.nombre}` : "Librería Fácil"}
+                {usuario ? `Bienvenido, ${usuario.username}` : "Librería Fácil"}
             </Link>
             <input type="checkbox" id="menu"/>
             <label htmlFor="menu">

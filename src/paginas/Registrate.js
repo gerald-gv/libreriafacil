@@ -16,7 +16,7 @@ const Registrate = () => {
 
 
   // Acceso al contexto
-  const { setUsuario, usuariosBD, setUsuariosBD } = useContext(UsuarioContext);
+  const { setUsuario } = useContext(UsuarioContext);
 
   const Navegar = useNavigate();
 
@@ -31,7 +31,7 @@ const Registrate = () => {
   }
 
   // Para verificar si todo esta bien al momento de subirlo
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (formData.contraseña !== formData.confirmarContraseña) {
@@ -39,33 +39,33 @@ const Registrate = () => {
       return;
     }
 
-    // Validar si ya existe el usuario
-    const usuarioExiste = usuariosBD.some(u => u.email === formData.email);
-    if (usuarioExiste) {
-      setError("El correo ya esta registrado");
-      return;
+    try {
+      const respuesta = await fetch("http://localhost:1337/api/auth/local/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          username: formData.nombre,
+          email: formData.email,
+          password: formData.contraseña
+        }),
+      });
+
+      const data = await respuesta.json();
+
+      if (data.error) {
+        setError(data.error.message);
+        return;
+      }
+
+      //Mantener la persistencia con localStorage
+      localStorage.setItem("usuario", JSON.stringify(data.user));
+      setUsuario(data.user);
+      alert("Te has registrado correctamente");
+      Navegar("/")
+    } catch (error) {
+      console.error("Error en el registro:", error);
+      setError("Error de conexión");
     }
-    // Crear nuevo usuario
-    const nuevoUsuario = {
-      nombre: formData.nombre,
-      email: formData.email,
-      contraseña: formData.contraseña
-    };
-
-
-    //Revisa si ya hay usuarios nuevos, si no hay, devuelve null y pasa al siguiente
-    const nuevosUsuarios = [...(JSON.parse(localStorage.getItem("usuarios")) || []), nuevoUsuario];
-    //Si ya hay nuevos registrados lo guardara en usuarios
-    localStorage.setItem("usuarios", JSON.stringify(nuevosUsuarios));
-    //Guarda el registro actual en usuario y se sabe quien esta logueado
-    localStorage.setItem("usuario", JSON.stringify(nuevoUsuario));
-
-    // Registro confirmado y trasladado a iniciar sesion
-    setUsuariosBD(prev => [...prev, nuevoUsuario]);
-    setUsuario(nuevoUsuario);
-
-    alert("Te has registrado correctamente");
-    Navegar("/");
   };
 
 
