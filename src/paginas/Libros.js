@@ -6,9 +6,10 @@ import ProductoLibros from "../elementos/Section-Libros";
 const Productos = () => {
 
   const [datosLibros, setDatosLibros] = useState({});
+  const API_URL = process.env.REACT_APP_API_URL;
 
   useEffect(() => {
-    fetch("http://localhost:1337/api/categorias?populate[productos][populate]=imagen")
+    fetch(`${API_URL}/api/categorias?populate[productos][populate]=imagen`)
       .then(res => res.json())
       .then(data => {
         console.log("Respuesta completa de Strapi:", data);
@@ -25,7 +26,7 @@ const Productos = () => {
               descripcion: producto.descripcion,
               precio: producto.precio,
               stock: producto.stock,
-              img: imagen ? `http://localhost:1337${imagen}` : ""
+              img: imagen ? `${API_URL}${imagen}` : ""
             };
           });
 
@@ -37,7 +38,7 @@ const Productos = () => {
         setDatosLibros(categorias);
       })
       .catch(err => console.error("Error a la carga de libros", err));
-  }, []);
+  }, [API_URL]);
 
 
     return (

@@ -6,11 +6,16 @@ import ProductoLibros from "../elementos/Section-Libros";
 import SectionInicio from "../elementos/Section-Inicio";
 import "../estilos/principal.css";
 
+
+const API_URL = process.env.REACT_APP_API_URL;
 const Inicio = () => {
   const [librosDestacados, setLibrosDestacados] = useState([]);
 
+  
+
+  console.log("API_URL:", API_URL);
   useEffect(() => {
-    fetch("http://localhost:1337/api/categorias?populate[productos][populate]=imagen")
+    fetch(`${API_URL}/api/categorias?populate[productos][populate]=imagen`)
       .then(res => res.json())
       .then(data => {
         // Encontrar el titulo de categoria destacados
@@ -26,7 +31,8 @@ const Inicio = () => {
             descripcion: producto.descripcion,
             precio: producto.precio.toFixed(2),
             stock: producto.stock,
-            img: imagen ? `http://localhost:1337${imagen}` : ""
+            img: imagen?.startsWith("http") ? imagen : `${API_URL}${imagen}`
+
           };
         });
 

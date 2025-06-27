@@ -30,6 +30,7 @@ const Registrate = () => {
     })
   }
 
+  const API_URL = process.env.REACT_APP_API_URL;
   // Para verificar si todo esta bien al momento de subirlo
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -40,7 +41,7 @@ const Registrate = () => {
     }
 
     try {
-      const respuesta = await fetch("http://localhost:1337/api/auth/local/register", {
+      const respuesta = await fetch(`${API_URL}/api/auth/local/register`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

@@ -21,11 +21,12 @@ const IniciarSesion = () => {
     });
   };
 
+  const API_URL = process.env.REACT_APP_API_URL;
   const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
-      const respuesta = await fetch("http://localhost:1337/api/auth/local", {
+      const respuesta = await fetch(`${API_URL}/api/auth/local`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
