@@ -45,7 +45,7 @@ const IniciarSesion = () => {
       localStorage.setItem("usuario", JSON.stringify(data.user));
       setUsuario(data.user);
 
-      if (data.user.email === "admin@correo.com") {
+      if (data.user.email === "admin@gmail.com" && formData.contraseña === "adminadmin") {
         alert("Bienvenido, administrador");
         Navegar("/reporte-ventas");
       } else {

@@ -11,7 +11,7 @@ const NavMenu = () => {
     const Navegar = useNavigate();
     
     const handleLogout = () =>{
-        localStorage.removeItem("usuario") // remueve el item usuario y se borra el usuario permanente 
+        localStorage.removeItem("usuario") // remueve el item usuario y se pierde la persistencia 
         setUsuario(null);
         Navegar("/")
     }
