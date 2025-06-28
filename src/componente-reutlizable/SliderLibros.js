@@ -1,12 +1,14 @@
 import React from "react";
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Autoplay } from "swiper/modules";
+import { useContext } from "react";
 import "swiper/css"; 
 import "swiper/css/navigation";
 import "../estilos/principal.css";
-import { Link } from "react-router-dom";
+import { carritoContext } from "../context/carritoContext";
 
 const SliderLibros = ({ libros = []}) =>{
+    const { onAddProduct } = useContext(carritoContext)
     const loopActivo = libros.length > 3; // Solo se activa si hay más de 3
     return (
         <section className="slider-libros">
@@ -38,7 +40,7 @@ const SliderLibros = ({ libros = []}) =>{
                                 <p className="descripcion-libro">{libro.descripcion}</p>
                                 <p className="precio-libro">S/.{Number(libro.precio).toFixed(2)}</p>
                             </div>
-                            <Link to="/">Comprar</Link>
+                            <button to="/" onClick={() => onAddProduct(libro)}>Comprar</button>
                         </div>
                     </SwiperSlide>
                 ))}

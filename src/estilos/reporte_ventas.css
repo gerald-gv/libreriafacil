@@ -40,7 +40,7 @@
 }
 
 /* ------------------TÍTULOS UNIFICADOS------------------ */
-h1, h2 {
+.titulo-h1, .titulo-h2 {
     color: #333;
     text-align: center;
     margin-bottom: 1rem;
@@ -76,6 +76,6 @@ h1, h2 {
     /* empuja hacia la derecha */
 }
 
-.ibusqueda:focus {
+.busqueda:focus {
     border-color: #0077cc;
 }

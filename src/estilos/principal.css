@@ -51,6 +51,7 @@ main {
 .navBar ul {
     list-style: none;
     display: flex;
+    align-items: center;
     gap: 3.8rem;
     margin: 0;
     padding: 0;
@@ -81,6 +82,24 @@ main {
 }
 .menu-icon{
     width: 25px;
+}
+.cart{
+    position: relative;
+}
+
+.cart > span{
+    display: flex;
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    font-size: 11px;
+    color: black;
+    background-color: white;
+    bottom: 6px;
+    right: 0;
+    align-items: center;
+    justify-content: center;
 }
 /* Efecto Subrayado */
 
@@ -284,7 +303,7 @@ main {
 }
 
 /*Boton */
-.cards-libros a{
+.cards-libros button{
     text-decoration: none;
     background-color: #1e90ff;
     color: white;
@@ -297,7 +316,7 @@ main {
     transition: 0.3s ease;
 }
 
-.cards-libros a:hover {
+.cards-libros button:hover {
     background-color: #1c7ed6;
 }
 

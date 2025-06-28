@@ -4,14 +4,17 @@ import { Link, useNavigate } from "react-router-dom";
 import { BookOpen } from "lucide-react";
 import '../estilos/principal.css'
 import Menu from "../imagenes/menu.png";
+import Carrito from "../imagenes/carrito.png";
+import { carritoContext } from "../context/carritoContext";
 
 const NavMenu = () => {
+    const { counter } = useContext(carritoContext)
     //Utiliza lo puesto en el UsuarioContext.js
     const {usuario, setUsuario} = useContext(UsuarioContext)
     const Navegar = useNavigate();
     
     const handleLogout = () =>{
-        localStorage.removeItem("usuario") // remueve el item usuario y se pierde la persistencia 
+        localStorage.removeItem("usuario") // remueve el item usuario y se borra la persistencia
         setUsuario(null);
         Navegar("/")
     }
@@ -44,6 +47,12 @@ const NavMenu = () => {
                         ):(
                             <Link to="/iniciar-sesion">Iniciar Sesion</Link>
                         )}
+                    </li>
+                    <li>
+                        <Link to="/carrito" className="cart">
+                            <img src={Carrito} alt="carrito"/>
+                            <span>{counter}</span>
+                        </Link>
                     </li>
                 </ul>
             </nav>

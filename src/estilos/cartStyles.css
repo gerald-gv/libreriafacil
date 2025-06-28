@@ -1,0 +1,187 @@
+/* --------------------------------CONFG INICIALES--------------------------------*/
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+}
+.font{
+    background: linear-gradient(to right, #f0f0f0, #e0f7fa);
+    display: flex;
+    justify-content: center;
+}
+.titulo{
+    margin: 8px auto;
+}
+.titulo-carrito::after{
+    content: "";
+    background-color: black;
+    position: absolute;
+    left: 0;
+    top: 50px;
+    width: 100%;
+    height: 2px;
+}
+.empty{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    align-content: center;
+    bottom: 30px;
+}
+.empty > p{
+    font-size: 40px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.main-container{
+    padding: 0;
+    display: flex;
+    width: 90%;
+    height: 100%;
+    justify-content: center;
+}
+.list-products{
+    margin: 10px 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+    min-width: 310px;
+    max-width: 900px;
+    height: auto;
+    min-height: 500px;
+    background-color: white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+}
+.products{
+    overflow-x: hidden;
+    overflow-y: scroll;
+    height: auto;
+    min-height: 400px;
+    max-height: 650px;
+}
+.product{
+    display: flex;
+    justify-content: space-around;
+    margin: 6px 0px;
+    padding: 10px;
+    border-top: 1px solid #dce0e6;
+    border-bottom: 1px solid #dce0e6;
+}
+.product > img{
+    width: auto;
+    margin: 0 8px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(30, 144, 255, 0.2);
+}
+.description{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    width: 480px;
+}
+.description > p{
+    display: inline-block;
+    width: 150px;
+    font-size: 16px;
+    font-weight: 600;
+}
+.description > span{
+    display: inline-block;
+    margin: 10px;
+}
+.count{
+    display: flex;
+    width: 100px;
+    background-color: white;
+    border: 1px solid #dce0e6;
+}
+.count > .quantity{
+    text-align: center;
+    margin-top: 2px;
+    width: 50%;
+}
+.count > .minus,
+.count > .plus{
+    font-size: 20px;
+    width: 25%;
+    cursor: pointer;
+    appearance: none;
+    border: none;
+    background: none;
+}
+.delete{
+    margin: 16px;
+    padding: 4px;
+    cursor: pointer;
+    appearance: none;
+    border: 1px solid black;
+    border-radius: 4px;
+    transition: 0.15s ease-in;
+}
+.delete:hover{
+    color: white;
+    background-color: red;
+}
+
+.buy-books{
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid black;
+    height: auto;
+}
+.buy-books > p{
+    font-weight: 700;
+    margin: 10px 20px;
+}
+.buy-books > a{
+    text-align: center;
+    width: 90%;
+    margin: 20px auto;
+    padding: 10px 40px;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    background-color: #1e90ff;
+    border-radius: 20px;
+    transition: 0.2s ease-out;
+}
+.buy-books > a:hover{
+    transform: translateY(-3px);
+}
+.buy-books > a:active{
+    background-color: #0e447a;
+}
+
+.direction{
+    display: flex;
+    width: 500px;
+    margin: 40px auto;
+}
+.direction > p {
+    font-weight: bold;
+    font-size: 20px;
+}
+.region{
+    display: flex;
+    gap: 20px;
+}
+.selector-option{
+    height: 30px;
+}
+.region .specific-region{
+    display: flex;
+    flex-direction: column;
+}
+input{
+    padding: 4px 8px;
+}
+.specific-direction{
+    display: flex;
+    flex-direction: column;
+    margin-top: 8px;
+    margin-right: 40px;
+}

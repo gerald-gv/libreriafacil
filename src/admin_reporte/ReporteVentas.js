@@ -87,10 +87,10 @@ const Ventas = () => {
                 </nav>
             </div>
             <header className="header-titulo">
-                <h1>Bienvenido Administrador</h1>
+                <h1 className="titulo-h1">Bienvenido Administrador</h1>
             </header>
             <main className="main-tabla">
-                <h2>Sistema de reporte de ventas</h2>
+                <h2 className="titulo-h2">Sistema de reporte de ventas</h2>
 
                 <DataTable
                     title="Ventas de Libros"
