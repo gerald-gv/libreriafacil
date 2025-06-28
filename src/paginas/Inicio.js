@@ -12,8 +12,6 @@ const Inicio = () => {
   const [librosDestacados, setLibrosDestacados] = useState([]);
 
   
-
-  console.log("API_URL:", API_URL);
   useEffect(() => {
     fetch(`${API_URL}/api/categorias?populate[productos][populate]=imagen`)
       .then(res => res.json())
