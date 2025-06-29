@@ -14,7 +14,7 @@ const Carrito = () => {
     for (const libro of allProducts) {
       const ventaData = {
         data: {
-          titulo: libro.titulo,
+          titulo: libro.titulo, 
           cantidad: libro.cantidad,
           precio_unitario: libro.precio,
           precio_total: libro.precio * libro.cantidad,
