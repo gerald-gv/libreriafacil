@@ -40,7 +40,7 @@ const SliderLibros = ({ libros = []}) =>{
                                 <p className="descripcion-libro">{libro.descripcion}</p>
                                 <p className="precio-libro">S/.{Number(libro.precio).toFixed(2)}</p>
                             </div>
-                            <button to="/" onClick={() => onAddProduct(libro)}>Comprar</button>
+                            <button to="/" onClick={() => onAddProduct({...libro, precio: Number(libro.precio), cantidad: 1})}>Comprar</button>
                         </div>
                     </SwiperSlide>
                 ))}
