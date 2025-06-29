@@ -59,8 +59,9 @@ const Registrate = () => {
       }
 
       //Mantener la persistencia con localStorage
-      localStorage.setItem("usuario", JSON.stringify(data.user));
-      setUsuario(data.user);
+      const usuarioCompleto = { ...data.user, jwt: data.jwt };
+      localStorage.setItem("usuario", JSON.stringify(usuarioCompleto));
+      setUsuario(usuarioCompleto);
       alert("Te has registrado correctamente");
       Navegar("/")
     } catch (error) {

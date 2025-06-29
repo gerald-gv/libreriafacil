@@ -41,9 +41,10 @@ const IniciarSesion = () => {
         setError("Correo y/o contraseña incorrectos");
         return;
       }
-      // Establecer usuario para localStorage, persistencia completada
-      localStorage.setItem("usuario", JSON.stringify(data.user));
-      setUsuario(data.user);
+      // Establecer usuario para localStorage, persistencia completada'
+      const usuarioCompleto = { ...data.user, jwt: data.jwt };
+      localStorage.setItem("usuario", JSON.stringify(usuarioCompleto));
+      setUsuario(usuarioCompleto);
 
       if (data.user.email === "admin@gmail.com" && formData.contraseña === "adminadmin") {
         alert("Bienvenido, administrador");

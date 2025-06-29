@@ -1,18 +1,41 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import "../estilos/cartStyles.css"
 import { carritoContext } from "../context/carritoContext";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
 
 const API_URL = process.env.REACT_APP_API_URL;
+
 const Carrito = () => {
   const { total, allProducts, onDeleteProduct, onAdd, onMinus, vaciarCarrito } = useContext(carritoContext)
+  const Redirigir = useNavigate();
 
   const finalizarCompra = async () => {
     const usuario = JSON.parse(localStorage.getItem("usuario"));
-
+    console.log("Usuario cargado:", usuario);
+    //Verificar si hay usuario o el token de usuario
     if (!usuario || !usuario.jwt) {
-      alert("Debes registrarte primero para comprar!");
-      return; // Esto evita que siga ejecutándose la función si no está logueado
+      Swal.fire({
+        icon: 'warning',
+        title: 'Necesitas una cuenta',
+        text: 'Debes registrarte o iniciar sesion para continuar!',
+        showDenyButton: true,
+        showCancelButton: true,
+        confirmButtonText: 'Iniciar Sesion',
+        denyButtonText: 'Registrarse',
+        cancelButtonText: 'Cancelar',
+        confirmButtonColor: '#28a745',
+        denyButtonColor: '#6f42c1',
+        cancelButtonColor: '#6c757d'
+      }).then((rpta) => {
+        if (rpta.isConfirmed) {
+          Redirigir("/iniciar-sesion")
+        } else if (rpta.isDenied) {
+          Redirigir("/registrate")
+        }
+      })
+      return;
     }
 
     const token = usuario?.jwt;
@@ -45,7 +68,12 @@ const Carrito = () => {
     }
 
     vaciarCarrito();
-    alert("Compra Registrada exitosamente")
+    Swal.fire({
+      icon: 'success',
+      title: '¡Compra registrada!',
+      text: 'Tu compra se ha realizado',
+      confirmButtonText: 'Aceptar'
+    })
   };
 
   return (
