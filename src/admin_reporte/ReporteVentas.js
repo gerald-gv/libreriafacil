@@ -12,13 +12,13 @@ const Ventas = () => {
     const [records, SetRecords] = useState([]);
 
     useEffect(() => {
-        fetch(`${API_URL}/api/ventas?populate[producto][fields][0]=titulo&populate[users_permissions_user][fields][0]=email`)
+        fetch(`${API_URL}/api/ventas?populate[users_permissions_user][fields][0]=email`)
             .then(res => res.json())
             .then(data => {
                 console.log("Data de ventas cruda:", data);
 
                 const ventasMap = data.data.map(v => {
-                    const usuario = v.users_permissions_user?.data?.attributes?.email || "Sin usuario";
+                    const usuario = v.users_permissions_user?.email || "Sin usuario";
                     return {
                         usuario,
                         titulo: v.producto?.titulo || v.titulo || "Sin título",

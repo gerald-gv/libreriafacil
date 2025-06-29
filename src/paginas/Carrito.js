@@ -20,7 +20,7 @@ const Carrito = () => {
           precio_total: libro.precio * libro.cantidad,
           fecha: new Date().toISOString(),
           producto: libro.id,
-          users_permissions_user: usuario?.user?.id || null
+          users_permissions_user: usuario?.id || null
         }
       };
 
