@@ -79,9 +79,19 @@ const CarritoCompo = ({ children }) => {
     localStorage.setItem('subTotal', JSON.stringify(total))
   });
   
+  // Vaciar el carrito al realizar compra
+  const vaciarCarrito = () => {
+  setAllProducts([]);
+  setTotal(0);
+  setCounter(0);
+  localStorage.removeItem("cart");
+  localStorage.removeItem("countProducts");
+  localStorage.removeItem("subTotal");
+};
+
   //el proveedor
   return (
-    <carritoContext.Provider value = {{ allProducts, total, counter, onAddProduct, onDeleteProduct, onAdd, onMinus}}>
+    <carritoContext.Provider value = {{ allProducts, total, counter, onAddProduct, onDeleteProduct, onAdd, onMinus, vaciarCarrito}}>
         { children }
     </carritoContext.Provider>
   )

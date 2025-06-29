@@ -9,54 +9,66 @@ const API_URL = process.env.REACT_APP_API_URL;
 const Ventas = () => {
 
     const [datosVentas, setDatosVentas] = useState([]);
-
     const [records, SetRecords] = useState([]);
 
     useEffect(() => {
-        fetch(`${API_URL}/api/productos`)
+        fetch(`${API_URL}/api/ventas?populate[producto][fields][0]=titulo&populate[users_permissions_user][fields][0]=email`)
             .then(res => res.json())
             .then(data => {
-                const productos = data.data.map(prod => {
+                console.log("Data de ventas cruda:", data);
+
+                const ventasMap = data.data.map(v => {
+                    const usuario = v.users_permissions_user?.data?.attributes?.email || "Sin usuario";
                     return {
-                        titulo: prod.titulo,
-                        precio: prod.precio,
+                        usuario,
+                        titulo: v.producto?.titulo || v.titulo || "Sin título",
+                        precio: v.precio_unitario,
+                        cantidad: v.cantidad,
+                        total: v.precio_total,
+                        fecha: v.fecha
                     };
                 });
-                setDatosVentas(productos);
-                SetRecords(productos);
+
+                console.log("Ventas procesadas:", ventasMap);
+                setDatosVentas(ventasMap);
+                SetRecords(ventasMap);
             })
             .catch(err => {
                 console.error("Error al cargar data", err);
             });
     }, []);
 
+
     const { setUsuario } = useContext(UsuarioContext)
     const Navegar = useNavigate();
 
     const columnas = [
         {
-            name: "Titulo",
+            name: "Usuario",
+            selector: row => row.usuario,
+        },
+        {
+            name: "Título",
             selector: row => row.titulo,
             sortable: true
         },
         {
-            name: "Precio",
-            selector: row => `S/ ${row.precio.toFixed(2)}`,
-        }
-        /*
+            name: "Precio Unitario",
+            selector: row => `S/ ${row.precio.toFixed(2)}`
+        },
         {
             name: "Cantidad",
-            selector: row => row.cantidad,
+            selector: row => row.cantidad
         },
         {
             name: "Total",
-            selector: row => row.precio,
+            selector: row => `S/ ${row.total.toFixed(2)}`
         },
         {
             name: "Fecha y Hora",
-            selector: row => new Date(row.fecha).toLocaleString("es-PE"),
-        }*/
-    ]
+            selector: row => new Date(row.fecha).toLocaleString("es-PE")
+        }
+    ];
 
 
     const handleLogout = () => {
