@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import { UsuarioContext } from "../usuario/UsuarioContext";
 import { useNavigate } from "react-router-dom";
 import "../estilos/formularios.css"
+import Swal from "sweetalert2";
 const Registrate = () => {
 
   // Establecer el estado
@@ -62,10 +63,14 @@ const Registrate = () => {
       const usuarioCompleto = { ...data.user, jwt: data.jwt };
       localStorage.setItem("usuario", JSON.stringify(usuarioCompleto));
       setUsuario(usuarioCompleto);
-      alert("Te has registrado correctamente");
-      Navegar("/")
+      Swal.fire({
+        icon: 'success',
+        title: '¡Registro exitoso!',
+        text: 'Te haz registrado correctamente',
+        confirmButtonText: 'Aceptar'
+      })
+      Navegar("/");
     } catch (error) {
-      console.error("Error en el registro:", error);
       setError("Error de conexión");
     }
   };

@@ -1,6 +1,7 @@
 import React, { useContext, useState } from "react";
 import { UsuarioContext } from "../usuario/UsuarioContext";
 import { useNavigate, Link } from "react-router-dom";
+import Swal from "sweetalert2";
 import "../estilos/formularios.css";
 
 const IniciarSesion = () => {
@@ -50,7 +51,12 @@ const IniciarSesion = () => {
         alert("Bienvenido, administrador");
         Navegar("/reporte-ventas");
       } else {
-        alert("Inicio de sesión exitoso");
+        Swal.fire({
+          icon: 'success',
+          title: 'Login Exitoso',
+          text: 'Te haz logueado exitosamente',
+          confirmButtonText: 'Aceptar'
+        })
         Navegar("/");
       }
     } catch (error) {
