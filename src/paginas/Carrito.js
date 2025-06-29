@@ -9,12 +9,18 @@ const Carrito = () => {
 
   const finalizarCompra = async () => {
     const usuario = JSON.parse(localStorage.getItem("usuario"));
+
+    if (!usuario || !usuario.jwt) {
+      alert("Debes registrarte primero para comprar!");
+      return; // Esto evita que siga ejecutándose la función si no está logueado
+    }
+
     const token = usuario?.jwt;
 
     for (const libro of allProducts) {
       const ventaData = {
         data: {
-          titulo: libro.titulo, 
+          titulo: libro.titulo,
           cantidad: libro.cantidad,
           precio_unitario: libro.precio,
           precio_total: libro.precio * libro.cantidad,
