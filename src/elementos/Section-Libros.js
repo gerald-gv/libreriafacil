@@ -3,10 +3,10 @@ import SliderLibros from "../componente-reutlizable/SliderLibros";
 
 
 
-const ProductoLibros = ({libros = []}) =>{    
+const ProductoLibros = ({libros = [], cargando = false}) =>{    
     return(
         <>
-            <SliderLibros libros={libros}  />
+            <SliderLibros libros={libros}  cargando={cargando}/>
         </>
     )
 }

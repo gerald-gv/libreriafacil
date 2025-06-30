@@ -10,8 +10,8 @@ import "../estilos/principal.css";
 const API_URL = process.env.REACT_APP_API_URL;
 const Inicio = () => {
   const [librosDestacados, setLibrosDestacados] = useState([]);
+  const [cargando, setCargando] = useState(true); // Agregar Estado de carga como True
 
-  
   useEffect(() => {
     fetch(`${API_URL}/api/categorias?populate[productos][populate]=imagen`)
       .then(res => res.json())
@@ -36,7 +36,8 @@ const Inicio = () => {
 
         setLibrosDestacados(productos);
       })
-      .catch(err => console.error("Error al cargar libros destacados:", err));
+      .catch(err => console.error("Error al cargar libros destacados:", err))
+      .finally(() => setCargando(false));
   }, []);
 
 
@@ -49,7 +50,7 @@ const Inicio = () => {
       <main>
         <SliderImg />
         <h2 className="titulo-slider">Libros Destacados</h2>
-        <ProductoLibros libros={librosDestacados} />
+        <ProductoLibros libros={librosDestacados} cargando ={cargando} />
       </main>
       <SectionInicio />
     </div>

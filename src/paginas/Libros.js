@@ -7,6 +7,7 @@ const Productos = () => {
 
   const [datosLibros, setDatosLibros] = useState({});
   const API_URL = process.env.REACT_APP_API_URL;
+  const [cargando, setCargando] = useState(true);
 
   useEffect(() => {
     fetch(`${API_URL}/api/categorias?populate[productos][populate]=imagen`)
@@ -37,30 +38,32 @@ const Productos = () => {
 
         setDatosLibros(categorias);
       })
-      .catch(err => console.error("Error a la carga de libros", err));
-  }, [API_URL]);
+      .catch(err => console.error("Error a la carga de libros", err))
+      .finally(() => setCargando(false));
+}, [API_URL]);
 
 
-    return (
-        <>
-            <div className="info-datetime">
-                <Fecha />
-                <Hora />
-            </div>
-            <main >
-                <h2 className="titulo-slider">Libros Destacados</h2>
-                {datosLibros.destacados && <ProductoLibros libros={datosLibros.destacados} />}
-                <h2 className="titulo-slider">Ficcion Contemporánea</h2>
-                {datosLibros.ficcion && <ProductoLibros libros={datosLibros.ficcion} />}
+  return (
+    <>
+      <div className="info-datetime">
+        <Fecha />
+        <Hora />
+      </div>
+      <main >
+        <h2 className="titulo-slider">Libros Destacados</h2>
+        <ProductoLibros libros={datosLibros.destacados || []} cargando={cargando} />
 
-                <h2 className="titulo-slider">Desarrollo Personal</h2>
-                {datosLibros.desarrollo && <ProductoLibros libros={datosLibros.desarrollo} />}
+        <h2 className="titulo-slider">Ficción Contemporánea</h2>
+        <ProductoLibros libros={datosLibros.ficcion || []} cargando={cargando} />
 
-                <h2 className="titulo-slider">Terror y suspenso</h2>
-                {datosLibros.terror && <ProductoLibros libros={datosLibros.terror} />}
-            </main>
-        </>
-    )
+        <h2 className="titulo-slider">Desarrollo Personal</h2>
+        <ProductoLibros libros={datosLibros.desarrollo || []} cargando={cargando} />
+
+        <h2 className="titulo-slider">Terror y suspenso</h2>
+        <ProductoLibros libros={datosLibros.terror || []} cargando={cargando} />
+      </main>
+    </>
+  )
 }
 
 export default Productos;
