@@ -90,7 +90,7 @@ const Carrito = () => {
                       <img src={libro.img} alt={libro.imagen} />
                       <div className="description">
                         <p>{libro.titulo}</p>
-                        <span>{libro.precio}</span>
+                        <span>S/.{libro.precio.toFixed(2)}</span>
                         <div className="count">
                           <button className="minus" onClick={() => onMinus(libro)}>-</button>
                           <span className="quantity">
@@ -104,7 +104,7 @@ const Carrito = () => {
                   ))}
                 </div>
                 <div className="buy-books">
-                  <p>Subtotal: S/. {total}</p>
+                  <p>Subtotal: S/. {total.toFixed(2)}</p>
                   <form className="direction">
                     <p>Direccion de envio</p>
                     <div className="region">
@@ -158,7 +158,7 @@ const Carrito = () => {
                       <input type="text" id="street" name="street" className="container-input" />
                     </div>
                   </form>
-                  <button onClick={finalizarCompra}>Realizar compra</button>
+                  <button className="comprar" onClick={finalizarCompra}>Realizar compra</button>
                 </div>
               </>
             ) : (
