@@ -1,4 +1,3 @@
-/* --------------------------------CONFG INICIALES--------------------------------*/
 * {
     box-sizing: border-box;
     padding: 0;
@@ -10,10 +9,6 @@
     background: linear-gradient(to right, #f0f0f0, #e0f7fa);
     display: flex;
     justify-content: center;
-}
-
-.titulo {
-    margin: 8px auto;
 }
 
 .titulo-carrito::after {
@@ -184,82 +179,26 @@
 
 .direction {
     display: flex;
-    width: 500px;
+    flex-direction: column;
+    width: 90%;
     margin: 40px auto;
+    align-items: flex-start;
+    gap: 1rem;
 }
 
 .direction>p {
     font-weight: bold;
     font-size: 20px;
-}
-
-.region {
-    display: flex;
-    gap: 20px;
-}
-
-.selector-option {
-    padding: 0.625rem 0.75rem;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 15px;
-    margin-top: 6px;
-}
-
-.region .specific-region {
-    display: flex;
-    flex-direction: column;
-}
-
-input[type="text"],
-input[type="number"],
-.selector-option {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
-    font-size: 15px;
-    transition: border-color 0.3s ease;
-    outline: none;
-}
-
-input[type="text"]:focus,
-input[type="number"]:focus,
-.selector-option:focus {
-    border-color: #1e90ff;
-    box-shadow: 0 0 0 2px rgba(30, 144, 255, 0.1);
+    margin-bottom: 0;
 }
 
 .specific-direction {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    margin-top: 8px;
-    margin-right: 40px;
 }
 
-.validar-direccion {
-    display: block;
-    margin: 1.25rem auto 0 auto;
-    padding: 0.80rem 5rem;
-    background-color: #1e90ff;
-    color: white;
-    border: none;
-    border-radius: 1.25rem;
-    font-weight: bold;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-}
-
-.validar-direccion:hover {
-    background-color: #0e75c7;
-    transform: translateY(-2px);
-}
-
-.validar-direccion:active {
-    background-color: #094a87;
-}
-
-/* -------------------- RESPONSIVE - max-width: 768px -------------------- */
+/* -------------------- RESPONSIVE -------------------- */
 @media (width <=768px) {
     .main-container {
         flex-direction: column;
@@ -315,19 +254,8 @@ input[type="number"]:focus,
         margin: 20px auto;
     }
 
-    .region {
-        flex-direction: column;
-        gap: 10px;
-    }
-
     .specific-direction {
         margin-right: 0;
-    }
-
-    .validar-direccion {
-        font-size: 14px;
-        padding: 8px 16px;
-        border-radius: 16px;
     }
 
     .comprar {

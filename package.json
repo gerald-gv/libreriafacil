@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^13.5.0",
     "@turf/turf": "^7.2.0",
     "leaflet": "^1.9.4",
+    "leaflet-geosearch": "^4.2.0",
     "lucide-react": "^0.513.0",
     "react": "^19.1.0",
     "react-content-loader": "^7.0.2",

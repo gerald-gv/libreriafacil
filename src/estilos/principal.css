@@ -25,7 +25,7 @@ main {
     position: sticky;
     width: 100%;
     top: 0;
-    z-index: 1000;
+    z-index: 9999;
     transition: all 0.3s ease;
 }
 

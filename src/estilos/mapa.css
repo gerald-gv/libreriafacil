@@ -1,8 +1,18 @@
 .contenedor-mapa {
-    height: 300px;
     width: 100%;
-    margin-top: 16px;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    height: 500px;
+    margin-bottom: 1rem;
+    border-radius: 0.625rem;
+    border: 2px solid #ccc;
+}
+
+.mapa-leaflet {
+    height: 100%;
+    width: 100%;
+}
+
+@media (width <= 768px) {
+    .contenedor-mapa {
+        height: 300px;
+    }
 }
