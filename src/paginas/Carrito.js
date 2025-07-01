@@ -46,6 +46,15 @@ const Carrito = () => {
       setDireccionValida(false);
       return;
     }
+
+    // Mostrar mensaje de ubicación aproximada
+    Swal.fire({
+      icon: 'info',
+      title: 'Ubicación referencial',
+      text: 'El mapa señala una ubicación aproximada basada en tu dirección. Si no es la correcta, corrígela y vuelve a validar.',
+      confirmButtonText: 'Entendido'
+    });
+
     setCoordenadas({ lat: resultado.lat, lon: resultado.lon });
     setDireccionValida(true);
     setDireccionConfirmada(direccion)
@@ -104,19 +113,10 @@ const Carrito = () => {
           precio_total: libro.precio * libro.cantidad,
           direccion,
           fecha: new Date().toISOString(),
-          producto: libro.id, // ← ID del producto relacionado
-          users_permissions_user: usuario?.id || null // ← ID del usuario autenticado
+          producto: libro.id,
+          users_permissions_user: usuario?.id || null
         }
       };
-
-      // ⬇️ Aquí va tu log de depuración
-      console.log("Enviando venta:", {
-        direccion,
-        direccionConfirmada,
-        direccionValida,
-        producto: libro,
-        ventaData
-      });
 
       try {
         await fetch(`${API_URL}/api/ventas`, {

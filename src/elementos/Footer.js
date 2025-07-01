@@ -84,9 +84,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="barra-footer">
-                    <p className="geocoding-credit">
-                        Geocodificación por <a href="https://opencagedata.com/" target="_blank" rel="noopener noreferrer">OpenCage</a>
-                    </p>
+                    <p className="geocoding-credit">Geocodificación por <a href="https://opencagedata.com/" target="_blank" rel="noopener noreferrer">OpenCage</a></p>
                     <p className="copyright">@2025 Libreria Facil. Todos los Derechos Reservados</p>
                     <div className="enlaces-legales">
                         {enlacesLegales.map((enlace, index) => (

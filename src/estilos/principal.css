@@ -70,24 +70,28 @@ main {
 .navBar ul li a:hover {
     color: #1e90ff;
 }
+
 /*       Menu       */
-#menu{
+#menu {
     display: none;
 }
-.menu > label {
+
+.menu>label {
     cursor: pointer;
     display: none;
     position: relative;
     top: -4px;
 }
-.menu-icon{
+
+.menu-icon {
     width: 25px;
 }
-.cart{
+
+.cart {
     position: relative;
 }
 
-.cart > span{
+.cart>span {
     display: flex;
     position: absolute;
     width: 14px;
@@ -101,6 +105,7 @@ main {
     align-items: center;
     justify-content: center;
 }
+
 /* Efecto Subrayado */
 
 .navBar ul li a::after {
@@ -121,51 +126,51 @@ main {
 /* --------------------------------SLIDER DE IMAGENES--------------------------------*/
 
 .overlay-img {
-  position: relative;
+    position: relative;
 }
 
 .overlay-img::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
-  z-index: 1;
-  border-radius: 0.5rem;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
+    z-index: 1;
+    border-radius: 0.5rem;
 }
 
 .overlay-img img {
-  position: relative;
-  z-index: 0;
+    position: relative;
+    z-index: 0;
 }
 
 /* Fecha y hora  */
 .info-datetime {
-  position: absolute;
-  top: 64px;
-  right: 15px;
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  background-color: rgba(0, 0, 0, 0.534);
-  color: #fdfdfd !important;
-  padding: 0.6rem 1.2rem;
-  border-radius: 12px;
-  z-index: 10;
-  font-size: 1rem;
-  font-weight: 600;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  text-shadow: none;
+    position: absolute;
+    top: 64px;
+    right: 15px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: rgba(0, 0, 0, 0.534);
+    color: #fdfdfd !important;
+    padding: 0.6rem 1.2rem;
+    border-radius: 12px;
+    z-index: 10;
+    font-size: 1rem;
+    font-weight: 600;
+    backdrop-filter: blur(6px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    text-shadow: none;
 }
 
 /* Estilo interno para cada elemento de Fecha y Hora si son spans/divs */
 .info-datetime span,
 .info-datetime div {
-  min-width: 100px;
-  text-align: center;
+    min-width: 100px;
+    text-align: center;
 }
 
 .seccion-carrusel {
@@ -180,7 +185,8 @@ main {
 }
 
 .carrusel {
-    overflow: hidden; /* MUY IMPORTANTE */
+    overflow: hidden;
+    /* MUY IMPORTANTE */
     border-radius: 0.5rem;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
@@ -238,23 +244,24 @@ main {
 
 /* --------------------------------SLIDER DE PRODUCTOS-LIBROS--------------------------------*/
 
-.titulo-slider{
+.titulo-slider {
     font-size: 1.5rem;
     font-weight: 700;
     text-align: left;
 }
+
 .slider-libros {
     background: white;
     margin: 0 auto 3rem auto;
     border-radius: 0.5rem;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
 .cards-libros {
     height: 100%;
     background: white;
     border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     padding: 1rem;
     text-align: center;
     display: flex;
@@ -277,10 +284,10 @@ main {
 /* Título, Contenido, Descripcion y Precio por Libro */
 .cards-libros h3 {
     font-size: 1rem;
-    color: #1f2937; 
+    color: #1f2937;
     margin: 0.3rem;
     font-weight: bold;
-    min-height: 2.4em; 
+    min-height: 2.4em;
     line-height: 1.2;
 }
 
@@ -291,7 +298,7 @@ main {
     min-height: 100px;
 }
 
-.descripcion-libro{
+.descripcion-libro {
     font-size: 0.85rem;
     color: #6b7280;
 }
@@ -303,7 +310,7 @@ main {
 }
 
 /*Boton */
-.cards-libros button{
+.cards-libros button {
     text-decoration: none;
     background-color: #1e90ff;
     color: white;
@@ -414,52 +421,53 @@ main {
 
 /* --------------------------------FOOTER--------------------------------*/
 
-.footer-pagina{
+.footer-pagina {
     background: #111827;
     color: white;
     padding: 2rem 0rem;
 }
 
-.footer-contenedor{
+.footer-contenedor {
     max-width: 80rem;
     margin: 0 auto;
     padding: 0 2rem;
 }
+
 /* Columna footer */
-.contenido-footer{
+.contenido-footer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
     gap: 1.5rem;
 }
 
-.columna-footer{
+.columna-footer {
     margin-bottom: 1rem;
 }
 
 /* logo y contennido dentro del footer */
-.logo-footer{
+.logo-footer {
     display: flex;
     align-items: center;
     gap: 0.4rem;
     margin-bottom: 0.75rem;
     font-size: 1.3rem;
     font-weight: bold;
-    color: #599EFF; 
+    color: #599EFF;
     text-decoration: none;
 }
 
-.descripcion-footer{
+.descripcion-footer {
     color: #d1d5db;
     margin-bottom: 1rem;
     font-size: 0.9rem;
 }
 
-.redes-sociales{
+.redes-sociales {
     display: flex;
     gap: 0.75rem;
 }
 
-.icono-social{
+.icono-social {
     background: rgba(255, 255, 255, 0.1);
     color: white;
     width: 2rem;
@@ -471,68 +479,70 @@ main {
     transition: all 0.3s ease;
 }
 
-.icono-social:hover{
+.icono-social:hover {
     background: #1e90ff;
     transform: translateY(-2px);
 }
 
 /* Enlaces Rapidos */
-.titulo-enlaces{
+.titulo-enlaces {
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 1rem;
     color: #599EFF;
 }
 
-.enlaces{
+.enlaces {
     list-style: none;
 }
 
-.enlaces li{
+.enlaces li {
     margin-bottom: 0.5rem;
 }
 
-.enlaces li a{
+.enlaces li a {
     text-decoration: none;
-    color: #d1d5db;;
+    color: #d1d5db;
+    ;
     transition: color 0.3s ease;
     font-size: 0.9rem;
 }
 
-.enlaces li a:hover{
+.enlaces li a:hover {
     color: #1e90ff;
 }
 
 /* Contacto*/
-.titulo-contacto{
+.titulo-contacto {
     font-size: 1.1rem;
     font-weight: 600;
     margin-bottom: 1rem;
     color: #599EFF;
 }
-.info-contacto{
+
+.info-contacto {
     list-style: none;
 }
 
-.info-contacto li{
+.info-contacto li {
     display: flex;
     margin-bottom: 0.75rem;
 }
 
-.contacto-dato{
+.contacto-dato {
     color: #d1d5db;
     line-height: 1.4;
     font-size: 0.9rem;
 }
 
-.icono-contacto{
+.icono-contacto {
     color: #599EFF;
     margin-right: 0.45rem;
 }
 
 /* Barra Footer*/
 
-.barra-footer{
+.barra-footer {
     border-top: 1px solid #374151;
     margin-top: 2rem;
     padding-top: 1rem;
@@ -542,42 +552,61 @@ main {
     align-items: center;
 }
 
-.copyright{
-    font-size: 0.8rem;
+.geocoding-credit {
+    font-size: 0.75rem;
     color: #9ca3af;
-    margin-bottom: 0.75rem;
 }
 
-.enlaces-legales{
+.geocoding-credit a {
+    color: #599EFF;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.geocoding-credit a:hover {
+    color: #1e90ff;
+    text-decoration: underline;
+}
+
+.copyright {
+    font-size: 0.8rem;
+    color: #9ca3af;
+}
+
+.enlaces-legales {
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
 }
 
-.enlace-legal{
+.enlace-legal {
     text-decoration: none;
     font-size: 0.8rem;
     color: #9ca3af;
     transition: color 0.3s ease;
 }
 
-.enlace-legal:hover{
+.enlace-legal:hover {
     color: #1e90ff;
 }
 
 
 /* --------------------------------RESPONSIVE--------------------------------*/
 
-@media (width <= 768px){
+@media (width <=768px) {
+
     /* -----------BARRA DE MENU-----------*/
-    .menu{
+    .menu {
         align-items: flex-start;
         padding: 1rem;
     }
-    .menu > label {
+
+    .menu>label {
         display: initial;
     }
-    .menu > .navBar{
+
+    .menu>.navBar {
         background: inherit;
         width: 100%;
         padding: 10px;
@@ -586,25 +615,27 @@ main {
         top: 100%;
         display: none;
     }
-    #menu:checked ~ .navBar{
+
+    #menu:checked~.navBar {
         display: initial;
     }
-    .logo{
+
+    .logo {
         font-size: 1.2rem;
         margin-bottom: 0.5rem;
     }
 
-    .navBar ul{
+    .navBar ul {
         flex-direction: column;
         gap: 1rem;
         width: 100%;
     }
 
-    .navBar ul li a{
+    .navBar ul li a {
         font-size: 1rem;
     }
 
-    .info-datetime{
+    .info-datetime {
         flex-direction: column;
         top: 10px;
         right: 10px;
@@ -614,11 +645,11 @@ main {
     }
 
     /* -----------SLIDER DE BIBLIOTECAS-----------*/
-    .slide-carrusel img{
+    .slide-carrusel img {
         height: 200px;
     }
 
-    .botones-carrusel{
+    .botones-carrusel {
         width: 2rem;
         height: 2rem;
     }
@@ -627,7 +658,8 @@ main {
 
     .swiper-slide {
         display: flex;
-        height: auto !important; /*fuerza que aplique el auto */
+        height: auto !important;
+        /*fuerza que aplique el auto */
     }
 
     .titulo-slider {
@@ -636,7 +668,7 @@ main {
     }
 
     .cards-libros img {
-        width: 100%;    
+        width: 100%;
         height: 140px;
         margin: 0 auto 0.5rem auto;
     }
@@ -668,37 +700,37 @@ main {
 
     /* -----------SECCION-----------*/
 
-    .contenedor-info h2{
+    .contenedor-info h2 {
         font-size: 1.5rem;
     }
 
-    .contenedor-info p{
+    .contenedor-info p {
         font-size: 1rem;
         padding: 0 1rem;
     }
 
     .btn {
         font-size: 0.9rem;
-        padding: 0.6rem 1rem ;
+        padding: 0.6rem 1rem;
     }
 
     /* -----------FOOTER-----------*/
 
-    .logo-footer{
+    .logo-footer {
         font-size: 1.1rem;
     }
 
-    .barra-footer{
+    .barra-footer {
         gap: 0.5rem;
     }
-    
+
     .descripcion-footer,
     .contacto-dato,
-    .enlaces li a{
+    .enlaces li a {
         font-size: 0.8rem;
     }
 
-    .enlaces-legales{
+    .enlaces-legales {
         gap: 0.5rem;
     }
 
