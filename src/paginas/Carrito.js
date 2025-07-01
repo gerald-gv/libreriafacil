@@ -14,6 +14,7 @@ const Carrito = () => {
   const finalizarCompra = async () => {
     const usuario = JSON.parse(localStorage.getItem("usuario"));
     console.log("Usuario cargado:", usuario);
+
     //Verificar si hay usuario o el token de usuario
     if (!usuario || !usuario.jwt) {
       Swal.fire({
@@ -112,39 +113,7 @@ const Carrito = () => {
                         <label for="departamento" className="title-input-name">Departamento</label>
                         <select name="departamento" id="departamento" className="selector-option">
                           <option value="Lima">Lima</option>
-                          <option value="Amazonas">Amazonas</option>
-                          <option value="Apurímac">Apurímac</option>
-                          <option value="Arequipa">Arequipa</option>
-                          <option value="Ayacucho">Ayacucho</option>
-                          <option value="Callao">Callao</option>
-                          <option value="Cajamarca">Cajamarca</option>
-                          <option value="Cusco">Cusco</option>
-                          <option value="Huancavelica">Huancavelica</option>
-                          <option value="Huánuco">Huánuco</option>
-                          <option value="Ica">Ica</option>
-                          <option value="Junín">Junín</option>
-                          <option value="La Libertad">La Libertad</option>
-                          <option value="Lambayeque">Lambayeque</option>
-                          <option value="Loreto">Loreto</option>
-                          <option value="Madre De Dios">Madre De Dios</option>
-                          <option value="Moquegua">Moquegua</option>
-                          <option value="Pasco">Pasco</option>
-                          <option value="Piura">Piura</option>
-                          <option value="Puno">Puno</option>
-                          <option value="San Martín">San Martín</option>
-                          <option value="Tacna">Tacna</option>
-                          <option value="Tumbes">Tumbes</option>
-                          <option value="Ucayali">Ucayali</option>
-                          <option value="Áncash">Áncash</option>
                         </select>
-                      </div>
-                      <div className="specific-region">
-                        <label for="province" className="title-input-name">Provincia</label>
-                        <input type="text" id="province" name="departamento" className="container-input" required />
-                      </div>
-                      <div className="specific-region">
-                        <label for="district" className="title-input-name">Distrito</label>
-                        <input type="text" id="district" name="ciudad" className="container-input" required />
                       </div>
                     </div>
                     <div className="specific-direction">
