@@ -12,7 +12,7 @@ const Ventas = () => {
     const [records, SetRecords] = useState([]);
 
     useEffect(() => {
-        fetch(`${API_URL}/api/ventas?populate[users_permissions_user][fields][0]=email`)
+        fetch(`${API_URL}/api/ventas?populate[users_permissions_user][fields][0]=email&populate[producto][fields][0]=titulo&fields[0]=direccion`)
             .then(res => res.json())
             .then(data => {
                 console.log("Data de ventas cruda:", data);
@@ -25,7 +25,8 @@ const Ventas = () => {
                         precio: v.precio_unitario,
                         cantidad: v.cantidad,
                         total: v.precio_total,
-                        fecha: v.fecha
+                        fecha: v.fecha,
+                        direccion: v.direccion || "Sin dirección"
                     };
                 });
 
@@ -63,6 +64,10 @@ const Ventas = () => {
         {
             name: "Total",
             selector: row => `S/ ${row.total.toFixed(2)}`
+        },
+        {
+            name: "Direccion",
+            selector: row => row.direccion
         },
         {
             name: "Fecha y Hora",

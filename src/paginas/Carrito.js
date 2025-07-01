@@ -1,8 +1,10 @@
-import { useContext } from "react";
-import "../estilos/cartStyles.css"
+import { useContext, useRef, useState } from "react";
 import { carritoContext } from "../context/carritoContext";
-import Swal from "sweetalert2";
+import { validarDireccion } from "../utils/validarDireccion";
 import { useNavigate } from "react-router-dom";
+import Mapa from "../componente-reutlizable/Mapa";
+import Swal from "sweetalert2";
+import "../estilos/cartStyles.css"
 
 
 const API_URL = process.env.REACT_APP_API_URL;
@@ -11,7 +13,61 @@ const Carrito = () => {
   const { total, allProducts, onDeleteProduct, onAdd, onMinus, vaciarCarrito } = useContext(carritoContext)
   const Redirigir = useNavigate();
 
+  //Referencia del Input
+  const direccionRef = useRef();
+  const [coordenadas, setCoordenadas] = useState(null);
+  const [direccionValida, setDireccionValida] = useState(false)
+  const [direccionConfirmada, setDireccionConfirmada] = useState("");
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+
+    // Obtiene el valor de direccionRef y verificara si esta lleno
+    const direccion = direccionRef.current.value.trim();
+
+    if (!direccion || direccion.length < 10) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Dirección inválida',
+        text: 'Ingrese una dirección válida y completa (mínimo 10 caracteres).'
+      });
+      setDireccionValida(false);
+      return;
+    }
+
+
+    //Acceder a la prop valido y verificar si es correcto
+    const resultado = await validarDireccion(direccion);
+    if (!resultado.valido) {
+      Swal.fire({
+        icon: 'error',
+        title: 'Dirrecion invalida',
+        text: 'Solo enviamos pedidos a Lima Metropolitana!'
+      })
+      setDireccionValida(false);
+      return;
+    }
+    setCoordenadas({ lat: resultado.lat, lon: resultado.lon });
+    setDireccionValida(true);
+    setDireccionConfirmada(direccion)
+  }
+
+
   const finalizarCompra = async () => {
+    // Obtiene el valor de direccionRef y verificara si esta lleno
+    const direccion = direccionRef.current.value.trim();
+
+    // Verificar si ya se validó la dirección
+    if (!direccionValida || direccion !== direccionConfirmada) {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Validación pendiente',
+        text: 'Debes validar tu dirección antes de comprar.'
+      });
+      return;
+    }
+
+
     const usuario = JSON.parse(localStorage.getItem("usuario"));
     console.log("Usuario cargado:", usuario);
 
@@ -40,7 +96,6 @@ const Carrito = () => {
     }
 
     const token = usuario?.jwt;
-
     for (const libro of allProducts) {
       const ventaData = {
         data: {
@@ -48,11 +103,21 @@ const Carrito = () => {
           cantidad: libro.cantidad,
           precio_unitario: libro.precio,
           precio_total: libro.precio * libro.cantidad,
+          direccion,
           fecha: new Date().toISOString(),
-          producto: libro.id,
-          users_permissions_user: usuario?.id || null
+          producto: libro.id, // ← ID del producto relacionado
+          users_permissions_user: usuario?.id || null // ← ID del usuario autenticado
         }
       };
+
+      // ⬇️ Aquí va tu log de depuración
+      console.log("Enviando venta:", {
+        direccion,
+        direccionConfirmada,
+        direccionValida,
+        producto: libro,
+        ventaData
+      });
 
       try {
         await fetch(`${API_URL}/api/ventas`, {
@@ -94,9 +159,7 @@ const Carrito = () => {
                         <span>S/.{libro.precio.toFixed(2)}</span>
                         <div className="count">
                           <button className="minus" onClick={() => onMinus(libro)}>-</button>
-                          <span className="quantity">
-                            {libro.cantidad}
-                          </span>
+                          <span className="quantity"> {libro.cantidad} </span>
                           <button className="plus" onClick={() => onAdd(libro)}>+</button>
                         </div>
                         <button className="delete" onClick={() => onDeleteProduct(libro)}>Eliminar</button>
@@ -104,9 +167,11 @@ const Carrito = () => {
                     </div>
                   ))}
                 </div>
+
                 <div className="buy-books">
                   <p>Subtotal: S/. {total.toFixed(2)}</p>
-                  <form className="direction">
+                  {/*Formulario para Direccion*/}
+                  <form className="direction" onSubmit={handleSubmit}>
                     <p>Direccion de envio</p>
                     <div className="region">
                       <div className="specific-region">
@@ -116,16 +181,18 @@ const Carrito = () => {
                         </select>
                       </div>
                     </div>
+
                     <div className="specific-direction">
                       <label for="street" className="title-input-name">Direccion de calle</label>
-                      <input type="text" id="street" name="street" className="container-input" required />
+                      <input type="text" id="street" name="street" className="container-input" ref={direccionRef} placeholder="Av. Arequipa 123, Lima" required />
 
-                      <label for="postal-code" className="title-input-name">Codigo postal</label>
-                      <input type="text" id="postal-code" name="postal-code" className="container-input" required />
+                      {/* Botón para validar dirección */}
+                      <button type="submit" className="validar-direccion">Validar dirección</button>
 
-                      <label for="street" className="title-input-name">Referencia de la dirección</label>
-                      <input type="text" id="street" name="street" className="container-input" />
+                      {/*Mostrar el mapa si la direccion es valida*/}
+                      {coordenadas && <Mapa lat={coordenadas.lat} lon={coordenadas.lon} />}
                     </div>
+                    {/*Finalizar Compra*/}
                   </form>
                   <button className="comprar" onClick={finalizarCompra}>Realizar compra</button>
                 </div>
