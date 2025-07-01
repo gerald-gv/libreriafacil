@@ -3,6 +3,7 @@ import L from "leaflet";
 import "../estilos/mapa.css";
 import "leaflet/dist/leaflet.css";
 
+//Establecemos el Icono para el mapa
 const marcadorIcon = new L.icon({
     iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
     iconSize: [25, 41],
@@ -10,6 +11,7 @@ const marcadorIcon = new L.icon({
     popupAnchor: [1, -34]
 });
 
+//Cramos el Mapa segun las coordenadas
 const Mapa = ({ lat, lon }) => {
     if (!lat || !lon) return null;
 

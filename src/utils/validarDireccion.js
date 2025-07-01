@@ -5,13 +5,14 @@ const OPENCAGE_API_KEY = process.env.REACT_APP_OPENCAGE_API_KEY;
 
 export async function validarDireccion(direccionTexto) {
     //Validar direcciones largas
-    if (!direccionTexto || direccionTexto.trim().length < 10) {
+    if (!direccionTexto || !/\d/.test(direccionTexto)) {
         return {
             valido: false,
-            mensaje: "Ingrese una direccion verdadera (calle, número, distrito)"
+            mensaje: "Ingrese una dirección válida (ej. calle y número)"
         }
     }
 
+    // Guardamos en url la API de OpenCage
     const url = `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(
         direccionTexto + ", Lima, Peru"
     )}&key=${OPENCAGE_API_KEY}&language=es&pretty=1`;

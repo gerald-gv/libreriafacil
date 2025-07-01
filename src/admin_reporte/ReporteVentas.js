@@ -15,8 +15,7 @@ const Ventas = () => {
         fetch(`${API_URL}/api/ventas?populate[users_permissions_user][fields][0]=email&populate=producto`)
             .then(res => res.json())
             .then(data => {
-                console.log("Data de ventas cruda:", data);
-
+                // Recorrido para procesar las datos de las ventas
                 const ventasMap = data.data.map(v => {
                     const usuario = v.users_permissions_user?.email || "Sin usuario";
                     return {
@@ -29,8 +28,6 @@ const Ventas = () => {
                         direccion: v.direccion || "Sin dirección"
                     };
                 });
-
-                console.log("Ventas procesadas:", ventasMap);
                 setDatosVentas(ventasMap);
                 SetRecords(ventasMap);
             })

@@ -24,8 +24,7 @@ const Carrito = () => {
 
     // Obtiene el valor de direccionRef y verificara si esta lleno
     const direccion = direccionRef.current.value.trim();
-
-    if (!direccion || direccion.length < 10) {
+    if (!direccion || !/\d/.test(direccion)) {
       Swal.fire({
         icon: 'warning',
         title: 'Dirección inválida',
