@@ -1,4 +1,5 @@
-import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import { useEffect } from "react";
 import L from "leaflet";
 import "../estilos/mapa.css";
 import "leaflet/dist/leaflet.css";
@@ -10,6 +11,20 @@ const marcadorIcon = new L.icon({
     iconAnchor: [12, 41],
     popupAnchor: [1, -34]
 });
+
+// Componente auxiliar para mover el mapa cuando cambian las coordenadas
+const MoverMapa = ({ lat, lon }) => {
+  const map = useMap();
+
+  useEffect(() => {
+    if (lat && lon) {
+      map.setView([lat, lon], 16);
+    }
+  }, [lat, lon, map]);
+
+  return null;
+};
+
 
 //Cramos el Mapa segun las coordenadas
 const Mapa = ({ lat, lon }) => {
@@ -29,6 +44,7 @@ const Mapa = ({ lat, lon }) => {
                 <Marker position={[lat, lon]} icon={marcadorIcon}>
                     <Popup>Tu direccion</Popup>
                 </Marker>
+                <MoverMapa lat={lat} lon={lon} />
             </MapContainer>
         </div>
     )
