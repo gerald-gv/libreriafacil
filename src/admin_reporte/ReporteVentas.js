@@ -12,7 +12,7 @@ const Ventas = () => {
     const [records, SetRecords] = useState([]);
 
     useEffect(() => {
-        fetch(`${API_URL}/api/ventas?populate[users_permissions_user][fields][0]=email&populate[producto][fields][0]=titulo&fields[0]=direccion`)
+        fetch(`${API_URL}/api/ventas?populate[users_permissions_user][fields][0]=email&populate=producto`)
             .then(res => res.json())
             .then(data => {
                 console.log("Data de ventas cruda:", data);
