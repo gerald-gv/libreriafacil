@@ -6,7 +6,6 @@ import Servicios from './paginas/Servicios_';
 import Registrate from './paginas/Registrate';
 import IniciarSesion from './paginas/IniciarSesion';
 import Ventas from './admin_reporte/ReporteVentas';
-import RecuperarCuenta from './paginas/RecuperarCuenta';
 import ProtegerAdmin from './ruta_protegida/ProtegerAdmin';
 import Carrito from './paginas/Carrito';
 import Layout from './paginas/Layout';
@@ -22,7 +21,6 @@ function App() {
           <Route path="/servicios" element={<Servicios />} />
           <Route path="/registrate" element={<Registrate />} />
           <Route path="/iniciar-sesion" element={<IniciarSesion />} />
-          <Route path="/recuperar-cuenta" element={<RecuperarCuenta />} />
           <Route path="/carrito" element={<Carrito />} />
         </Route>
         <Route path="/reporte-ventas" element={

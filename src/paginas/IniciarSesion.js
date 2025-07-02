@@ -80,7 +80,6 @@ const IniciarSesion = () => {
 
                 <label for="password" className="title-input-name">Contraseña <span>*</span></label>
                 <input type="password" name="contraseña" onChange={handleChange} class="input-container" required />
-                <Link to="/recuperar-cuenta" className="forgot-password">¿Olvidaste tu contraseña?</Link>
 
                 <div className="submit">
                   {error && <p className="error_contra">{error}</p>}
