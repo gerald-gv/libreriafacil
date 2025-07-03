@@ -10,6 +10,8 @@ import ProtegerAdmin from './ruta_protegida/ProtegerAdmin';
 import Carrito from './paginas/Carrito';
 import Layout from './paginas/Layout';
 import CarritoCompo from './context/CarritoCompo';
+import MisPedidos from './paginas/MisPedidos';
+import RutaProtegida from './ruta_protegida/ProtegerRuta';
 
 function App() {
   return (
@@ -21,6 +23,13 @@ function App() {
           <Route path="/servicios" element={<Servicios />} />
           <Route path="/registrate" element={<Registrate />} />
           <Route path="/iniciar-sesion" element={<IniciarSesion />} />
+
+          <Route path="/mis-pedidos" element={
+            <RutaProtegida>
+              <MisPedidos/>
+            </RutaProtegida>
+          } />
+
           <Route path="/carrito" element={<Carrito />} />
         </Route>
         <Route path="/reporte-ventas" element={

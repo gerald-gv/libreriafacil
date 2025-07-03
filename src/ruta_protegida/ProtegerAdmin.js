@@ -5,11 +5,6 @@ import { UsuarioContext } from "../usuario/UsuarioContext";
 const ProtegerAdmin = ({ children }) => {
     const { usuario } = useContext(UsuarioContext);
 
-
-    if (usuario === null) {
-        return null; 
-    }
-
     if (!usuario) {
         return <Navigate to="/" replace />;
     }
