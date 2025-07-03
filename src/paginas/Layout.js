@@ -5,11 +5,13 @@ import { Outlet } from 'react-router-dom';
 
 const Layout = () => {
   return (
-    <>
+    <div className="app">
       <NavMenu />
-      <Outlet />
+      <main className="contenido-principal">
+        <Outlet /> {/* Aquí se cargan tus páginas: Inicio, Libros, MisPedidos, etc. */}
+      </main>
       <Footer />
-    </>
+    </div>
   );
 };
 

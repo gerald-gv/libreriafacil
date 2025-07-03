@@ -579,6 +579,21 @@ body {
     color: #1e90ff;
 }
 
+/* === ESTRUCTURA GENERAL PARA LAYOUT === */
+html, body, #root {
+  height: 100%;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.contenido-principal {
+  flex: 1;
+  width: 100%;
+}
 
 /* --------------------------------RESPONSIVE--------------------------------*/
 
