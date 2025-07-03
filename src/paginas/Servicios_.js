@@ -1,166 +1,123 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import Fecha from '../elementos/Fecha';
-import Hora from '../elementos/Hora';
+import {
+  Clock, Calendar, BookOpen, Users,
+  Star, MessageCircle, Armchair, TrendingUp
+} from 'lucide-react';
 import '../estilos/servicios.css';
 
 const Servicios = () => {
+  const [currentDate, setCurrentDate] = useState(new Date());
+
+  useEffect(() => {
+    const timer = setInterval(() => setCurrentDate(new Date()), 1000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const servicios = [
+    {
+      id: 'venta',
+      icono: BookOpen,
+      titulo: 'Venta de Libros',
+      descripcion: 'Amplia selección de libros nuevos y usados',
+      detalles: [
+        'Literatura clásica y contemporánea',
+        'Libros académicos y de texto',
+        'Literatura infantil y juvenil',
+        'Autoayuda y desarrollo personal',
+        'Libros de segunda mano en buen estado'
+      ]
+    },
+    {
+      id: 'espacio',
+      icono: Armchair,
+      titulo: 'Espacio de Lectura',
+      descripcion: 'Ambiente cómodo para leer y hojear libros',
+      detalles: [
+        'Sillones cómodos y bien iluminados',
+        'Zona tranquila para lectura',
+        'Puedes revisar libros antes de comprar',
+        'Ambiente relajado y acogedor'
+      ]
+    },
+    {
+      id: 'asesoria',
+      icono: MessageCircle,
+      titulo: 'Asesoría Personal',
+      descripcion: 'Te ayudamos a encontrar el libro perfecto',
+      detalles: [
+        'Recomendaciones según tus gustos',
+        'Orientación sobre géneros literarios',
+        'Sugerencias para regalos',
+        'Información sobre autores y obras'
+      ]
+    }
+  ];
+
+  const horarios = [
+    { dia: 'Lunes a Viernes', horario: '9:00 AM - 7:00 PM', activo: [1, 2, 3, 4, 5].includes(currentDate.getDay()) },
+    { dia: 'Sábados', horario: '10:00 AM - 6:00 PM', activo: currentDate.getDay() === 6 },
+    { dia: 'Domingos', horario: 'Cerrado', activo: false }
+  ];
+
+  const stats = [
+    { icon: BookOpen, value: '2,500+', label: 'Libros disponibles' },
+    { icon: TrendingUp, value: '2', label: 'Años de experiencia' },
+    { icon: Users, value: '15-20', label: 'Clientes diarios' },
+    { icon: Star, value: '90%', label: 'Satisfacción cliente' }
+  ];
+
+
   return (
-    <>
-      <header className="header">
-          <div className="info-datetime">
-            <Fecha />
-            <Hora />
-          </div>
-        <br />
-        <br />
-        <br />
-        <br />
-        <br />
-        <section className="detalle-servicios container">
-          <h2>¿Por qué elegir Librería Fácil?</h2>
-          <div className="tarjetas-servicio">
-            <div className="tarjeta">
-              <i className="fas fa-book"></i>
-              <h4>Amplia Colección</h4>
-              <p>Tenemos libros de todos los géneros: literatura, ciencia, autoayuda, infantiles y más.</p>
-            </div>
-            <div className="tarjeta">
-              <i className="fas fa-shipping-fast"></i>
-              <h4>Envío Rápido</h4>
-              <p>Realizamos envíos a todo el país en menos de 48 horas.</p>
-            </div>
-            <div className="tarjeta">
-              <i className="fas fa-sync-alt"></i>
-              <h4>Garantía de Satisfacción</h4>
-              <p>Si el libro no es lo que esperabas, puedes devolverlo sin costo dentro de los 7 días.</p>
-            </div>
-          </div>
-        </section>
+    <div className="contenedor">
+      {/* Fecha y hora */}
+      <div className="header">
+        <Calendar size={16} />
+        <span>{currentDate.toLocaleDateString('es-ES')}</span>
+        <Clock size={16} style={{ marginLeft: '1rem' }} />
+        <span>{currentDate.toLocaleTimeString('es-ES')}</span>
+      </div>
 
-        <section className="faq container">
-          <h2>Preguntas Frecuentes</h2>
-          <div className="faq-item">
-            <h4>¿Los libros son nuevos?</h4>
-            <p>Sí, todos nuestros libros son nuevos y en perfectas condiciones.</p>
+      {/* Estadísticas */}
+      <section className="estadisticas">
+        {stats.map((s, i) => (
+          <div key={i} className="card">
+            <div className="icon-circle"><s.icon /></div>
+            <h3>{s.value}</h3>
+            <p>{s.label}</p>
           </div>
-          <div className="faq-item">
-            <h4>¿Puedo pagar al recibir?</h4>
-            <p>Sí, aceptamos pago contra entrega en zonas disponibles.</p>
-          </div>
-          <div className="faq-item">
-            <h4>¿Tienen libros digitales?</h4>
-            <p>Por ahora solo ofrecemos libros físicos, pero pronto incluiremos ebooks.</p>
-          </div>
-        </section>
+        ))}
+      </section>
 
-        <section className="confianza container">
-          <h2>Compra con Confianza</h2>
-          <div className="sellos">
-            <div className="sello">
-              <i className="fas fa-lock"></i>
-              <p>Pago Seguro</p>
-            </div>
-            <div className="sello">
-              <i className="fas fa-user-check"></i>
-              <p>Autenticidad Garantizada</p>
-            </div>
-            <div className="sello">
-              <i className="fas fa-book-open"></i>
-              <p>Variedad de Títulos</p>
-            </div>
+      {/* Servicios */}
+      <section className="servicios-grid">
+        {servicios.map((s) => (
+          <div key={s.id} className="card">
+            <div className="icon-circle"><s.icono /></div>
+            <h2>{s.titulo}</h2>
+            <p>{s.descripcion}</p>
+            <ul>
+              {s.detalles.map((d, i) => <li key={i}>• {d}</li>)}
+            </ul>
           </div>
-        </section>
-      </header>
+        ))}
+      </section>
 
-      <main className="services">
-        <div className="services-content container">
-          <h2 id="coleccion">¿Cómo comprar un libro?</h2>
-          <div className="services-group">
-            <div className="services-1">
-              <i className="fas fa-search"></i>
-              <h3>Paso 1: Explora</h3>
-              <p>Busca por título, autor o género en nuestro catálogo actualizado.</p>
-            </div>
-            <div className="services-1">
-              <i className="fas fa-credit-card"></i>
-              <h3>Paso 2: Compra</h3>
-              <p>Elige tu forma de pago: tarjeta, Yape, Plin o contra entrega.</p>
-            </div>
-            <div className="services-1">
-              <i className="fas fa-box"></i>
-              <h3>Paso 3: Recibe</h3>
-              <p>Te entregamos el libro en casa o punto de recojo en menos de 2 días.</p>
-            </div>
+      {/* Horarios */}
+      <section className="horarios">
+        {horarios.map((h, i) => (
+          <div key={i} className={`horario ${h.horario === 'Cerrado' ? 'cerrado' : (h.activo ? 'abierto' : '')}`}>
+            <h4>{h.dia}</h4>
+            <p>{h.horario}</p>
+            {h.activo && h.horario !== 'Cerrado' && <span className="estado">Abierto ahora</span>}
           </div>
-          <p className="info-text">
-            ¡Descubre tu próxima gran lectura con nosotros!
-          </p>
-          <br />
-          <Link to="/" className="btn-1">Ver Libros</Link>
-        </div>
-
-        {/* Proceso de Compra Visual */}
-        <section className="proceso-compra container">
-          <h2>¿Cómo funciona el proceso de compra?</h2>
-          <div className="pasos">
-            <div className="paso">
-              <i className="fas fa-search"></i>
-              <h4>1. Encuentra tu libro</h4>
-              <p>Explora nuestro catálogo por género, autor o título.</p>
-            </div>
-            <div className="paso">
-              <i className="fas fa-shopping-cart"></i>
-              <h4>2. Añádelo al carrito</h4>
-              <p>Agrega uno o varios libros y revisa tu pedido.</p>
-            </div>
-            <div className="paso">
-              <i className="fas fa-credit-card"></i>
-              <h4>3. Paga seguro</h4>
-              <p>Usa tarjeta, Yape, Plin o paga al recibir.</p>
-            </div>
-            <div className="paso">
-              <i className="fas fa-box-open"></i>
-              <h4>4. Recíbelo en casa</h4>
-              <p>Envío rápido y seguimiento garantizado.</p>
-            </div>
-          </div>
-        </section>
-
-        {/* Promociones o Beneficios */}
-        <section className="promociones container">
-          <h2>Beneficios y Promociones</h2>
-          <div className="beneficios">
-            <div className="beneficio">
-              <i className="fas fa-gift"></i>
-              <h4>10% en tu primera compra</h4>
-              <p>Solo por registrarte, recibe un cupón de descuento.</p>
-            </div>
-            <div className="beneficio">
-              <i className="fas fa-truck"></i>
-              <h4>Envío gratis desde S/ 100</h4>
-              <p>Disponible en Lima Metropolitana.</p>
-            </div>
-            <div className="beneficio">
-              <i className="fas fa-star"></i>
-              <h4>Cliente frecuente</h4>
-              <p>Obtén puntos por cada compra y canjéalos por libros.</p>
-            </div>
-          </div>
-        </section>
-
-        {/* Políticas de Servicio */}
-        <section className="politicas container">
-          <h2>Nuestras Políticas</h2>
-          <ul className="lista-politicas">
-            <li><strong>Devoluciones:</strong> Puedes devolver cualquier libro dentro de los 7 días.</li>
-            <li><strong>Pago seguro:</strong> Contamos con pasarelas cifradas para tu tranquilidad.</li>
-            <li><strong>Privacidad:</strong> Tus datos personales están protegidos y no se comparten.</li>
-            <li><strong>Autenticidad:</strong> Todos nuestros libros son originales y nuevos.</li>
-          </ul>
-        </section>
-      </main>
-    </>
+        ))}
+      </section>
+      {/* Botón volver */}
+      <div style={{ textAlign: 'center', marginTop: '2rem' }}>
+        <Link to="/" className="back-btn">← Volver al Inicio</Link>
+      </div>
+    </div>
   );
 };
 

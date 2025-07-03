@@ -12,6 +12,14 @@ main {
     padding-top: 2rem;
 }
 
+/* Estilo global */
+body {
+  font-family: 'Inter', sans-serif;
+  background: linear-gradient(to bottom right, #f0f9ff, #e0f2fe);
+  color: #1f2937;
+  line-height: 1.6;
+}
+
 /* --------------------------------BARRA DE MENU--------------------------------*/
 
 .menu {
@@ -175,7 +183,6 @@ main {
 
 .seccion-carrusel {
     padding: 3rem 0;
-    background: #ffffff;
 }
 
 .contenedor-carrusel {
@@ -186,7 +193,6 @@ main {
 
 .carrusel {
     overflow: hidden;
-    /* MUY IMPORTANTE */
     border-radius: 0.5rem;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
@@ -251,7 +257,6 @@ main {
 }
 
 .slider-libros {
-    background: white;
     margin: 0 auto 3rem auto;
     border-radius: 0.5rem;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
