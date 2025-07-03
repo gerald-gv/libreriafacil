@@ -40,6 +40,15 @@ const NavMenu = () => {
                     <li><Link to="/" onClick={scrollTop}>Inicio</Link></li>
                     <li><Link to="/servicios" onClick={scrollTop}>Servicios</Link></li>
                     <li><Link to="/productos" onClick={scrollTop}>Libros</Link></li>
+
+                    {/*Solo si el usuario este logueado, se añadira Mis Pedidos*/}
+
+                    {usuario && (
+                        <li>
+                            <Link to="/mis-pedidos" onClick={scrollTop}> Mis Pedidos</Link>
+                        </li>
+                    )}
+
                     <li>
                         {/*Verifica si hay usuario, si hay usuario logueado, aparece boton de cerrar sesion*/}
                         {usuario ? (
