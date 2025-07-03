@@ -6,7 +6,6 @@
 }
 
 .font {
-    background: linear-gradient(to right, #f0f0f0, #e0f7fa);
     display: flex;
     justify-content: center;
 }

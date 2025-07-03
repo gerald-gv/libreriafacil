@@ -6,7 +6,7 @@ import L from "leaflet";
 import geojson from "../utils/lima_metropolitana.json";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
-
+import Swal from "sweetalert2";
 import "leaflet/dist/leaflet.css";
 import "leaflet-geosearch/dist/geosearch.css";
 import "../estilos/mapa.css";
@@ -41,7 +41,12 @@ const SearchControl = ({ onUbicacionSeleccionada }) => {
 
       // Verifica si esta dentro de Lima Metropolitana
       if (!estaEnLima) {
-        alert("La dirección seleccionada NO está dentro de Lima Metropolitana.");
+        Swal.fire({
+          icon: 'error',
+          title: 'Direccion No Encontrada',
+          text: 'La dirección seleccionada NO está dentro de Lima Metropolitana.',
+          confirmButtonText: 'De acuerdo'
+        })
         // Restaurar vista a Lima
         map.setView([-12.0464, -77.0428], 11);
         return;
