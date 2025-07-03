@@ -640,7 +640,7 @@ html, body, #root {
 
     .info-datetime {
         flex-direction: column;
-        top: 10px;
+        top: 4rem;
         right: 10px;
         font-size: 0.8rem;
         padding: 0.4rem;
