@@ -8,6 +8,10 @@ const ProtegerAdmin = ({ children }) => {
     
     if (loading) return null;
 
+    if (!usuario) {
+        return <Navigate to="/" replace />;
+    }
+    
     const esAdmin = usuario.email === "admin@gmail.com"
 
     if (!esAdmin) {
