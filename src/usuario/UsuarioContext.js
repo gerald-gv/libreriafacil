@@ -4,6 +4,7 @@ export const UsuarioContext = createContext();
 
 export const UsuarioGlobal = ({ children }) => {
   const [usuario, setUsuario] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     // Cargar sesión persistente globalmente
@@ -11,10 +12,11 @@ export const UsuarioGlobal = ({ children }) => {
     if (usuarioGuardado) {
       setUsuario(usuarioGuardado);
     }
+    setLoading(false);
   }, []);
 
   return (
-    <UsuarioContext.Provider value={{ usuario, setUsuario }}>
+    <UsuarioContext.Provider value={{ usuario, setUsuario, loading }}>
       {children}
     </UsuarioContext.Provider>
   );

@@ -47,18 +47,18 @@ const IniciarSesion = () => {
       localStorage.setItem("usuario", JSON.stringify(usuarioCompleto));
       setUsuario(usuarioCompleto);
 
-      if (data.user.email === "admin@gmail.com" && formData.contraseña === "adminadmin") {
-        alert("Bienvenido, administrador");
-        Navegar("/reporte-ventas");
-      } else {
-        Swal.fire({
-          icon: 'success',
-          title: 'Login Exitoso',
-          text: 'Te haz logueado exitosamente',
-          confirmButtonText: 'Aceptar'
-        })
-        Navegar("/");
-      }
+
+      Swal.fire({
+        icon: 'success',
+        title: 'Login exitoso',
+        text: `Te haz Logueado Exitosamente, Bienvenido ${data.user.username}`,
+        confirmButtonText: 'OK'
+      });
+
+      const esAdmin = data.user.email === "admin@gmail.com";
+
+      Navegar(esAdmin ? "/reporte-ventas" : "/");
+      
     } catch (error) {
       console.error("Error al iniciar sesión:", error);
       setError("Error de conexión");
