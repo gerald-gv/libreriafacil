@@ -14,7 +14,7 @@ const Registrate = () => {
   })
   // Estado de error
   const [error, setError] = useState("");
-
+  const [loading, setLoading] = useState(false);
 
   // Acceso al contexto
   const { setUsuario } = useContext(UsuarioContext);
@@ -35,7 +35,7 @@ const Registrate = () => {
   // Para verificar si todo esta bien al momento de subirlo
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
     if (formData.contraseña !== formData.confirmarContraseña) {
       setError("Las contraseñas no coinciden")
       return;
@@ -72,6 +72,8 @@ const Registrate = () => {
       Navegar("/");
     } catch (error) {
       setError("Error de conexión");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -117,7 +119,9 @@ const Registrate = () => {
 
                 <div className="submit">
                   {error && <p className="error_contra">{error}</p>}
-                  <input type="submit" value="Crear cuenta" />
+                  <button type="submit" disabled={loading} >
+                    {loading ? "Cargando..." : "Crear Cuenta"}
+                  </button>
                 </div>
               </form>
             </div>

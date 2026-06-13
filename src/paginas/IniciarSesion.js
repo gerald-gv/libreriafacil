@@ -13,6 +13,7 @@ const IniciarSesion = () => {
   const { setUsuario } = useContext(UsuarioContext);
   const Navegar = useNavigate();
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -25,7 +26,7 @@ const IniciarSesion = () => {
   const API_URL = process.env.REACT_APP_API_URL;
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    setLoading(true);
     try {
       const respuesta = await fetch(`${API_URL}/api/auth/local`, {
         method: "POST",
@@ -62,12 +63,13 @@ const IniciarSesion = () => {
     } catch (error) {
       console.error("Error al iniciar sesión:", error);
       setError("Error de conexión");
+    } finally {
+      setLoading(false);
     }
-  };
+  }
 
   return (
     <div>
-
       <main>
         <section>
           <div className="font-content-form">
@@ -83,7 +85,9 @@ const IniciarSesion = () => {
 
                 <div className="submit">
                   {error && <p className="error_contra">{error}</p>}
-                  <input type="submit" value="Iniciar sesion" />
+                  <button type="submit" disabled={loading}>
+                    {loading ? "Cargando..." : "Iniciar Sesión"}
+                  </button>
                   <p>¿Aun no estas registrado?</p>
                   <Link to="/registrate" className="second-button">Crear cuenta</Link>
                 </div>

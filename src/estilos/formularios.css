@@ -60,7 +60,7 @@ label > span {
 .submit > p {
     margin-bottom: 20px;
 }
-.submit > input {
+.submit > button {
     justify-self: center;
     width: 140px;
     padding: 10px;
@@ -74,12 +74,21 @@ label > span {
     cursor: pointer;  
     transition: all 0.3s ease;
 }
-.submit > input:hover {
+.submit > button:hover {
     background: #1c7ed6;
     border-color: #1c7ed6;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(30, 144, 255, 0.3);
 }
+
+.submit>button:disabled {
+    background-color: #9ca3af;
+    cursor: not-allowed;
+    opacity: 0.8;
+    transform: none;
+    box-shadow: none;
+}
+
 .second-button{
     display: inline-block;
     justify-self: center;
