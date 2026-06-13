@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# 📚 Librería Fácil - Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+¡Bienvenido a **Librería Fácil**!
 
-## Available Scripts
+Una aplicación web **SPA** desarrollada para facilitar la compra de libros en **Lima Metropolitana**, ofreciendo una selección de títulos de **desarrollo personal**, **literatura contemporánea**, **terror** y **suspenso** mediante una experiencia de navegación simple e intuitiva.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🛠️ Frontend - Tecnologías Utilizadas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+![Swiper](https://img.shields.io/badge/Swiper-0080FF?style=for-the-badge&logo=swiper&logoColor=white)
+![Leaflet](https://img.shields.io/badge/Leaflet-199900?style=for-the-badge&logo=leaflet&logoColor=white)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- ⚛️ **React (Create React App)** – Librería principal utilizada para construir la interfaz de usuario.
+- 🎨 **CSS3** – Estilización personalizada para lograr una experiencia visual clara y adaptable.
+- 🎠 **Swiper** – Implementación de sliders y carruseles interactivos para destacar libros y categorías.
+- 🗺️ **Leaflet** – Mapa interactivo utilizado para la selección de ubicaciones de entrega por parte del cliente.
+---
 
-### `npm test`
+## 🖥️ Backend - Tecnologías Utilizadas
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+![Strapi](https://img.shields.io/badge/Strapi-2F2E8B?style=for-the-badge&logo=strapi&logoColor=white)
+![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
 
-### `npm run build`
+- ⚙️ **Strapi** – Headless CMS encargado de la administración y gestión del catálogo de libros.
+- 🗄️ **MySQL** – Base de datos utilizada para almacenar la información de productos, categorías y contenido dinámico.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+> ⚠️ Este repositorio corresponde únicamente al **Frontend** de la aplicación.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## 📖 Sobre el Proyecto
 
-### `npm run eject`
+**Librería Fácil** es una plataforma enfocada en la venta y exhibición de libros para usuarios de **Lima Metropolitana**. El proyecto ofrece una navegación sencilla y accesible, permitiendo explorar distintas categorías literarias de manera rápida y cómoda.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Categorías destacadas
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- 📚 Literatura contemporánea
+- 🚀 Desarrollo personal
+- 👻 Terror
+- 🔍 Suspenso
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Su objetivo es brindar una experiencia intuitiva enfocada en la búsqueda y descubrimiento de nuevas lecturas.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+## 🚀 Proyecto en Producción
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+🎉 El proyecto está desplegado y listo para ser explorado.  
+👉 Accedé desde aquí: [Ir a la App Web](https://libreriafacil.vercel.app)
